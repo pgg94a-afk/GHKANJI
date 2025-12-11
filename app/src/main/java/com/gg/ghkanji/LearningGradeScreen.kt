@@ -1,5 +1,6 @@
 package com.gg.ghkanji
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -33,6 +34,11 @@ fun LearningGradeScreen(
     onGradeClick: (Int, Int) -> Unit = { _, _ -> },
     onBackClick: () -> Unit = {}
 ) {
+    // 시스템 뒤로가기 버튼 처리
+    BackHandler {
+        onBackClick()
+    }
+
     val grades = listOf(
         GradeInfo(
             grade = 1,

@@ -1,5 +1,6 @@
 package com.gg.ghkanji
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -41,6 +42,11 @@ fun LearningStageScreen(
     onStageClick: (Stage) -> Unit = {},
     onBackClick: () -> Unit = {}
 ) {
+    // 시스템 뒤로가기 버튼 처리
+    BackHandler {
+        onBackClick()
+    }
+
     // 20개씩 스테이지 나누기
     val stages = createStages(grade, totalKanjiCount)
 
