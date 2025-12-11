@@ -31,6 +31,11 @@ class MainActivity : ComponentActivity() {
             // 간단한 네비게이션 상태 관리 (실무에선 NavController 사용 권장)
             var currentScreen by remember { mutableStateOf<Screen>(Screen.Splash) }
 
+            // 각 학년별 스크롤 상태 저장
+            val scrollStates = remember {
+                mutableMapOf<Int, androidx.compose.foundation.ScrollState>()
+            }
+
             val screen = currentScreen
             when (screen) {
                 Screen.Splash -> {
@@ -61,9 +66,15 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 is Screen.LearningStage -> {
+                    // 해당 학년의 스크롤 상태 가져오기 (없으면 생성)
+                    val scrollState = scrollStates.getOrPut(screen.grade) {
+                        androidx.compose.foundation.ScrollState(0)
+                    }
+
                     LearningStageScreen(
                         grade = screen.grade,
                         totalKanjiCount = screen.totalKanji,
+                        scrollState = scrollState,
                         onStageClick = { stage ->
                             currentScreen = Screen.KanjiMemorization(screen.grade, stage, screen.totalKanji)
                         },

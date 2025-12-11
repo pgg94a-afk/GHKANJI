@@ -5,6 +5,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,7 +16,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,6 +40,7 @@ data class Stage(
 fun LearningStageScreen(
     grade: Int = 1,
     totalKanjiCount: Int = 80,
+    scrollState: androidx.compose.foundation.ScrollState = rememberScrollState(),
     onStageClick: (Stage) -> Unit = {},
     onBackClick: () -> Unit = {}
 ) {
@@ -50,11 +51,6 @@ fun LearningStageScreen(
 
     // 20개씩 스테이지 나누기
     val stages = createStages(grade, totalKanjiCount)
-
-    // 스크롤 상태 저장 (화면 전환 시에도 유지)
-    val scrollState = rememberSaveable(saver = androidx.compose.foundation.ScrollState.Saver) {
-        androidx.compose.foundation.ScrollState(0)
-    }
 
     Box(
         modifier = Modifier
