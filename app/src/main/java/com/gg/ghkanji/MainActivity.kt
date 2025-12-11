@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             // 간단한 네비게이션 상태 관리 (실무에선 NavController 사용 권장)
             var showSplash by remember { mutableStateOf(true) }

@@ -39,6 +39,11 @@ fun SplashScreen(
                     settings.javaScriptEnabled = true // 애니메이션 실행을 위해 필수
                     settings.domStorageEnabled = true
 
+                    // 뷰포트 및 스케일 설정
+                    settings.useWideViewPort = true
+                    settings.loadWithOverviewMode = true
+                    setInitialScale(100)
+
                     // 줌 완전히 비활성화
                     settings.setSupportZoom(false)
                     settings.builtInZoomControls = false
