@@ -104,60 +104,53 @@ fun LearningStageScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height((stages.size * 180 + 100).dp)
+                    .height((stages.size * 200 + 100).dp)
             ) {
                 // 배경 경로 그리기
                 Canvas(modifier = Modifier.fillMaxSize()) {
-                    val pathColor = Color(0xFFFFCDD2)
-                    val pathWidth = size.width * 0.7f
-                    val pathHeight = 150.dp.toPx()
-                    val startX = size.width * 0.15f
+                    val pathColor = Color(0xFFFFE4CC)
+                    val pathWidth = size.width * 0.65f
+                    val pathHeight = 200.dp.toPx()
+                    val startX = size.width * 0.18f
+                    val strokeWidth = 12.dp.toPx()
 
                     stages.forEachIndexed { index, _ ->
-                        val y = index * pathHeight + 50.dp.toPx()
+                        val centerY = index * pathHeight + 80.dp.toPx()
                         val isLeftAlign = index % 2 == 0
 
-                        val path = Path().apply {
-                            if (isLeftAlign) {
-                                // 왼쪽 정렬 경로
-                                moveTo(startX, y)
-                                lineTo(startX + pathWidth, y)
-                            } else {
-                                // 오른쪽 정렬 경로
-                                moveTo(size.width - startX - pathWidth, y)
-                                lineTo(size.width - startX, y)
-                            }
-                        }
-
-                        // 경로 그리기 (둥근 사각형 느낌)
-                        drawRoundRect(
-                            color = pathColor,
-                            topLeft = if (isLeftAlign)
-                                Offset(startX, y - 30.dp.toPx())
-                            else
-                                Offset(size.width - startX - pathWidth, y - 30.dp.toPx()),
-                            size = androidx.compose.ui.geometry.Size(pathWidth, 60.dp.toPx()),
-                            cornerRadius = androidx.compose.ui.geometry.CornerRadius(30.dp.toPx())
-                        )
-
-                        // 연결 곡선 (다음 스테이지로)
+                        // 연결 곡선 (다음 스테이지로) - 더 부드럽고 자연스러운 S자 곡선
                         if (index < stages.size - 1) {
-                            val nextY = (index + 1) * pathHeight + 50.dp.toPx()
-                            val curveX = if (isLeftAlign) startX + pathWidth else size.width - startX - pathWidth
+                            val nextCenterY = (index + 1) * pathHeight + 80.dp.toPx()
+
+                            val startPointX = if (isLeftAlign) startX + pathWidth / 2 else size.width - startX - pathWidth / 2
+                            val endPointX = if (!isLeftAlign) startX + pathWidth / 2 else size.width - startX - pathWidth / 2
 
                             val curvePath = Path().apply {
-                                moveTo(curveX, y)
+                                moveTo(startPointX, centerY + 50.dp.toPx())
+
+                                // 부드러운 S자 곡선 생성
+                                val controlPoint1Y = centerY + pathHeight * 0.35f
+                                val controlPoint2Y = nextCenterY - pathHeight * 0.35f
+
                                 cubicTo(
-                                    curveX, y + pathHeight * 0.3f,
-                                    if (isLeftAlign) size.width - startX - pathWidth else startX + pathWidth, nextY - pathHeight * 0.3f,
-                                    if (isLeftAlign) size.width - startX - pathWidth else startX + pathWidth, nextY
+                                    startPointX, controlPoint1Y,
+                                    endPointX, controlPoint2Y,
+                                    endPointX, nextCenterY - 50.dp.toPx()
                                 )
                             }
 
+                            // 경로 그림자 (입체감)
+                            drawPath(
+                                path = curvePath,
+                                color = Color(0xFFE8C9A8),
+                                style = Stroke(width = strokeWidth + 4.dp.toPx())
+                            )
+
+                            // 메인 경로
                             drawPath(
                                 path = curvePath,
                                 color = pathColor,
-                                style = Stroke(width = 60.dp.toPx())
+                                style = Stroke(width = strokeWidth)
                             )
                         }
                     }
@@ -166,7 +159,7 @@ fun LearningStageScreen(
                 // 스테이지 버튼들
                 stages.forEachIndexed { index, stage ->
                     val isLeftAlign = index % 2 == 0
-                    val yOffset = (index * 180).dp + 20.dp
+                    val yOffset = (index * 200).dp + 30.dp
 
                     Box(
                         modifier = Modifier
@@ -195,54 +188,73 @@ fun StageButton(
     showCharacter: Boolean = false,
     onClick: () -> Unit
 ) {
-    Box(
-        modifier = Modifier.size(100.dp)
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.width(120.dp)
     ) {
-        // 입체감을 위한 그림자 레이어 (아래쪽)
         Box(
-            modifier = Modifier
-                .size(100.dp)
-                .offset(y = 4.dp)
-                .clip(CircleShape)
-                .background(
-                    color = if (showCharacter)
-                        Color(0xFF9F5A5A) // 더 어두운 빨강
-                    else
-                        Color(0xFFCA8B5F) // 더 어두운 오렌지
-                )
-        )
-
-        // 메인 버튼
-        Box(
-            modifier = Modifier
-                .size(100.dp)
-                .clip(CircleShape)
-                .background(
-                    color = if (showCharacter)
-                        Color(0xFFC97474) // 연한 빨강
-                    else
-                        Color(0xFFE8A87C) // 연한 오렌지
-                )
-                .clickable(onClick = onClick),
-            contentAlignment = Alignment.Center
+            modifier = Modifier.size(100.dp)
         ) {
-            if (showCharacter) {
-                // 곰 캐릭터
-                Text(
-                    text = "🐻",
-                    fontSize = 48.sp
-                )
-            } else {
-                // 스테이지 라벨
-                Text(
-                    text = stage.label,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF5A4A42),
-                    textAlign = TextAlign.Center
-                )
+            // 입체감을 위한 그림자 레이어 (아래쪽)
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .offset(y = 4.dp)
+                    .clip(CircleShape)
+                    .background(
+                        color = if (showCharacter)
+                            Color(0xFF9F5A5A) // 더 어두운 빨강
+                        else
+                            Color(0xFFCA8B5F) // 더 어두운 오렌지
+                    )
+            )
+
+            // 메인 버튼
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(CircleShape)
+                    .background(
+                        color = if (showCharacter)
+                            Color(0xFFC97474) // 연한 빨강
+                        else
+                            Color(0xFFE8A87C) // 연한 오렌지
+                    )
+                    .clickable(onClick = onClick),
+                contentAlignment = Alignment.Center
+            ) {
+                if (showCharacter) {
+                    // 곰 캐릭터
+                    Text(
+                        text = "🐻",
+                        fontSize = 48.sp
+                    )
+                } else {
+                    // 스테이지 라벨
+                    Text(
+                        text = stage.label,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF5A4A42),
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
+
+        // 한자 범위 표시
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = "${stage.startIndex + 1}~${stage.endIndex + 1}",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = Color(0xFF8B6F5C),
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .clip(RoundedCornerShape(12.dp))
+                .background(Color(0xFFFFE8D1))
+                .padding(horizontal = 12.dp, vertical = 4.dp)
+        )
     }
 }
 

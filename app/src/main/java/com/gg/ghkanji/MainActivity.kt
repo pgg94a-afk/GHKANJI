@@ -19,7 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 sealed class Screen {
     object Splash : Screen()
     object Main : Screen()
-    object LearningStage : Screen()
+    object LearningGrade : Screen()
+    data class LearningStage(val grade: Int, val totalKanji: Int) : Screen()
 }
 
 class MainActivity : ComponentActivity() {
@@ -40,22 +41,32 @@ class MainActivity : ComponentActivity() {
                 Screen.Main -> {
                     MainScreen(
                         onStudyClick = {
-                            currentScreen = Screen.LearningStage // 학습 스테이지 화면으로 이동
+                            currentScreen = Screen.LearningGrade // 학년 선택 화면으로 이동
                         },
                         onTestClick = {
                             // TODO: 한자 시험 화면으로 이동
                         }
                     )
                 }
-                Screen.LearningStage -> {
+                Screen.LearningGrade -> {
+                    LearningGradeScreen(
+                        onGradeClick = { grade, totalKanji ->
+                            currentScreen = Screen.LearningStage(grade, totalKanji) // 선택한 학년의 스테이지 화면으로 이동
+                        },
+                        onBackClick = {
+                            currentScreen = Screen.Main // 메인 화면으로 돌아가기
+                        }
+                    )
+                }
+                is Screen.LearningStage -> {
                     LearningStageScreen(
-                        grade = 1,
-                        totalKanjiCount = 80, // 1학년 한자 80개
+                        grade = currentScreen.grade,
+                        totalKanjiCount = currentScreen.totalKanji,
                         onStageClick = { stage ->
                             // TODO: 선택한 스테이지 학습 화면으로 이동
                         },
                         onBackClick = {
-                            currentScreen = Screen.Main // 메인 화면으로 돌아가기
+                            currentScreen = Screen.LearningGrade // 학년 선택 화면으로 돌아가기
                         }
                     )
                 }
