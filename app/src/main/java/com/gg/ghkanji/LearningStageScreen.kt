@@ -109,7 +109,7 @@ fun LearningStageScreen(
                 // 배경 경로 그리기
                 Canvas(modifier = Modifier.fillMaxSize()) {
                     val pathColor = Color(0xFFFFE4CC)
-                    val strokeWidth = 12.dp.toPx()
+                    val strokeWidth = 20.dp.toPx()
                     val buttonRadius = 50.dp.toPx() // 버튼 반지름 (100dp / 2)
                     val buttonMargin = 30.dp.toPx() // 버튼의 좌우 마진
                     val verticalSpacing = 200.dp.toPx() // 버튼 간 세로 간격
@@ -185,6 +185,7 @@ fun LearningStageScreen(
                         StageButton(
                             stage = stage,
                             showCharacter = index == 0, // 첫 번째 스테이지에만 곰 표시
+                            isLastStage = index == stages.size - 1, // 마지막 스테이지에는 학사모 표시
                             onClick = { onStageClick(stage) }
                         )
                     }
@@ -198,6 +199,7 @@ fun LearningStageScreen(
 fun StageButton(
     stage: Stage,
     showCharacter: Boolean = false,
+    isLastStage: Boolean = false,
     onClick: () -> Unit
 ) {
     Box(
@@ -210,10 +212,11 @@ fun StageButton(
                 .offset(y = 4.dp)
                 .clip(CircleShape)
                 .background(
-                    color = if (showCharacter)
-                        Color(0xFF9F5A5A) // 더 어두운 빨강
-                    else
-                        Color(0xFFCA8B5F) // 더 어두운 오렌지
+                    color = when {
+                        showCharacter -> Color(0xFF9F5A5A) // 더 어두운 빨강
+                        isLastStage -> Color(0xFF7B6FA3) // 더 어두운 보라색 (졸업)
+                        else -> Color(0xFFCA8B5F) // 더 어두운 오렌지
+                    }
                 )
         )
 
@@ -223,29 +226,40 @@ fun StageButton(
                 .size(100.dp)
                 .clip(CircleShape)
                 .background(
-                    color = if (showCharacter)
-                        Color(0xFFC97474) // 연한 빨강
-                    else
-                        Color(0xFFE8A87C) // 연한 오렌지
+                    color = when {
+                        showCharacter -> Color(0xFFC97474) // 연한 빨강
+                        isLastStage -> Color(0xFF9D8FC7) // 연한 보라색 (졸업)
+                        else -> Color(0xFFE8A87C) // 연한 오렌지
+                    }
                 )
                 .clickable(onClick = onClick),
             contentAlignment = Alignment.Center
         ) {
-            if (showCharacter) {
-                // 곰 캐릭터
-                Text(
-                    text = "🐻",
-                    fontSize = 48.sp
-                )
-            } else {
-                // 스테이지 라벨
-                Text(
-                    text = stage.label,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF5A4A42),
-                    textAlign = TextAlign.Center
-                )
+            when {
+                showCharacter -> {
+                    // 곰 캐릭터
+                    Text(
+                        text = "🐻",
+                        fontSize = 48.sp
+                    )
+                }
+                isLastStage -> {
+                    // 학사모 (졸업시험)
+                    Text(
+                        text = "🎓",
+                        fontSize = 48.sp
+                    )
+                }
+                else -> {
+                    // 스테이지 라벨
+                    Text(
+                        text = stage.label,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF5A4A42),
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
     }
@@ -274,6 +288,16 @@ fun createStages(grade: Int, totalCount: Int): List<Stage> {
         currentIndex += stageSize
         stageNumber++
     }
+
+    // 졸업시험 스테이지 추가 (모든 한자를 대상으로)
+    stages.add(
+        Stage(
+            id = stageNumber,
+            label = "졸업시험",
+            startIndex = 0,
+            endIndex = totalCount - 1
+        )
+    )
 
     return stages
 }
