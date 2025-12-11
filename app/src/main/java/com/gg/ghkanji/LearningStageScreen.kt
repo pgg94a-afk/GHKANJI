@@ -166,7 +166,7 @@ fun LearningStageScreen(
                 // 스테이지 버튼들
                 stages.forEachIndexed { index, stage ->
                     val isLeftAlign = index % 2 == 0
-                    val yOffset = index * 180.dp + 20.dp
+                    val yOffset = (index * 180).dp + 20.dp
 
                     Box(
                         modifier = Modifier

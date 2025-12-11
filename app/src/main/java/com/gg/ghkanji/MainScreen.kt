@@ -58,12 +58,12 @@ fun MainScreen(
                     .background(Color(0xFFE97878)),
                 contentAlignment = Alignment.Center
             ) {
-                // 여기에 실제 캐릭터 이미지가 들어갈 수 있습니다
-                // 현재는 이모지로 대체
-                Text(
-                    text = "🐮",
-                    fontSize = 80.sp,
-                    textAlign = TextAlign.Center
+                Image(
+                    // R.drawable.ic_drawable 부분에 실제 리소스 ID를 넣으세요
+                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    contentDescription = "우마우마 캐릭터 얼굴",
+                    modifier = Modifier
+                        .size(120.dp) // 80.sp 정도의 느낌을 내는 크기 (조절 가능)
                 )
             }
 
