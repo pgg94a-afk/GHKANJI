@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>UmaUma Splash Final Centered</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+        body {
+            margin: 0; padding: 0;
+            width: 100vw;
+            height: 100vh; /* 화면 전체 높이 */
+            display: flex;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            background-color: #FFFDF5;
+            font-family: 'Pretendard', sans-serif;
+            overflow: hidden;
+        }
+
+        /* ★ 핵심 수정: 내용물을 감싸는 래퍼 클래스 추가 ★ */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column; /* 세로 배치 (그림 위, 글자 아래) */
+            align-items: center; /* 내부 요소 가로 중앙 정렬 */
+            justify-content: center;
+        }
+
+        svg {
+            width: 260px;
+            height: 260px;
+            overflow: visible;
+            /* SVG 자체의 마진을 제거하여 정렬 방해 요소 없앰 */
+            margin: 0;
+            display: block;
+        }
+
+        .kanji-stroke {
+            fill: none; stroke: #333;
+            stroke-width: 16;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 1;
+        }
+
+        #actor-group {
+            transform-origin: 0 0;
+            transform: translate(120px, 120px);
+            animation:
+                syncWritingAction 4.5s forwards,
+                softJellyBounce 1.2s infinite 4.5s;
+        }
+
+        /* --- 붓(캐릭터) 움직임 --- */
+        @keyframes syncWritingAction {
+            0% { transform: translate(120px, 120px) scale(1, 1); }
+            10% { transform: translate(120px, 35px) scale(1.1, 0.9); animation-timing-function: ease-out; }
+            11.1% { transform: translate(120px, 35px) scale(1, 1); animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+            17.7% { transform: translate(120px, 75px) scale(0.95, 1.05); }
+            18% { transform: translate(120px, 75px) scale(0.95, 1.05); animation-timing-function: ease-in-out; }
+            26% { transform: translate(50px, 85px) scale(1.1, 0.9); animation-timing-function: ease-out; }
+            26.6% { transform: translate(50px, 85px) scale(1, 1); animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+            40% { transform: translate(190px, 85px) scale(0.95, 1.05); }
+            41% { transform: translate(190px, 85px) scale(0.95, 1.05); animation-timing-function: ease-in-out; }
+            48% { transform: translate(160px, 85px) scale(1.1, 0.9); animation-timing-function: ease-out; }
+            48.8% { transform: translate(160px, 85px) scale(1, 1); animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+            64.4% { transform: translate(55px, 190px) scale(0.95, 1.05); }
+            65% { transform: translate(55px, 190px) scale(0.95, 1.05); animation-timing-function: ease-in-out; }
+            72% { transform: translate(80px, 85px) scale(1.1, 0.9); animation-timing-function: ease-out; }
+            73.3% { transform: translate(80px, 85px) scale(1, 1); animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+            88.8% { transform: translate(205px, 190px) scale(0.9, 1.1); }
+            100% { transform: translate(205px, 190px) scale(1, 1); }
+        }
+
+        /* --- 점프 애니메이션 --- */
+        @keyframes softJellyBounce {
+            0% { transform: translate(205px, 190px) scale(1, 1); }
+            20% { transform: translate(205px, 195px) scale(1.15, 0.85); animation-timing-function: ease-out; }
+            50% { transform: translate(205px, 140px) scale(0.9, 1.1); animation-timing-function: ease-in-out; }
+            75% { transform: translate(205px, 195px) scale(1.1, 0.9); animation-timing-function: ease-out; }
+            100% { transform: translate(205px, 190px) scale(1, 1); }
+        }
+
+        /* --- 표정 변화 --- */
+        @keyframes fadeOutEye { from { opacity: 1; } to { opacity: 0; } }
+        @keyframes fadeInEye { from { opacity: 0; } to { opacity: 1; } }
+
+        #normal-eyes { animation: fadeOutEye 0.3s ease-in-out 4.5s forwards; }
+        #smiling-eyes { opacity: 0; animation: fadeInEye 0.3s ease-in-out 4.5s forwards; }
+        .smile-stroke { fill: none; stroke: #3E2723; stroke-width: 1.5; stroke-linecap: round; }
+
+        /* --- 잉크 애니메이션 --- */
+        @keyframes drawLine { to { stroke-dashoffset: 0; } }
+        #s1 { stroke-dasharray: 40; stroke-dashoffset: 40; animation: drawLine 0.3s cubic-bezier(0.45, 0, 0.55, 1) forwards 0.5s; }
+        #s2 { stroke-dasharray: 140; stroke-dashoffset: 140; animation: drawLine 0.6s cubic-bezier(0.45, 0, 0.55, 1) forwards 1.2s; }
+        #s3 { stroke-dasharray: 160; stroke-dashoffset: 160; animation: drawLine 0.7s cubic-bezier(0.45, 0, 0.55, 1) forwards 2.2s; }
+        #s4 { stroke-dasharray: 180; stroke-dashoffset: 180; animation: drawLine 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 3.3s; }
+
+        /* --- 타이틀 스타일 --- */
+        .title-box {
+            margin-top: 10px;
+            /* height 고정값을 제거하여 내용물에 맞게 조정 */
+            text-align: center;
+        }
+        .app-title {
+            color: #8D6E63;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin: 0; /* 불필요한 마진 제거 */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-wrapper">
+    <svg viewBox="0 0 240 240">
+        <circle cx="120" cy="120" r="100" fill="#FFECB3" opacity="0.4" />
+        <g id="kanji-group">
+            <path id="s1" d="M120 35 L120 75" class="kanji-stroke" />
+            <path id="s2" d="M50 85 L190 85" class="kanji-stroke" />
+            <path id="s3" d="M160 85 Q130 140 55 190" class="kanji-stroke" />
+            <path id="s4" d="M80 85 Q110 140 205 190" class="kanji-stroke" />
+        </g>
+
+        <g id="actor-group">
+            <g transform="rotate(-15)">
+                <rect x="-4" y="-55" width="8" height="40" fill="#795548" rx="2" />
+                <path d="M-5 -15 L5 -15 L0 0 Z" fill="#3E2723" />
+            </g>
+            <g transform="translate(-25, -45) rotate(-10)">
+                <ellipse cx="0" cy="10" rx="15" ry="18" fill="#EF5350" />
+                <path d="M-10 -5 L-15 -20 L0 -10 Z" fill="#D32F2F" />
+                <path d="M10 -5 L15 -20 L0 -10 Z" fill="#D32F2F" />
+                <circle cx="0" cy="0" r="20" fill="#EF5350" />
+                <ellipse cx="0" cy="5" rx="9" ry="7" fill="#FFCCBC" />
+                <path d="M-3 5 Q0 8 3 5" fill="none" stroke="#5D4037" stroke-width="1.5" stroke-linecap="round" />
+
+                <g id="normal-eyes">
+                    <circle cx="-7" cy="-2" r="2" fill="#3E2723" />
+                    <circle cx="7" cy="-2" r="2" fill="#3E2723" />
+                </g>
+                <g id="smiling-eyes">
+                    <path d="M-9 -1 Q -7 -4 -5 -1" class="smile-stroke" />
+                    <path d="M5 -1 Q 7 -4 9 -1" class="smile-stroke" />
+                </g>
+
+                <path d="M-5 -15 Q0 -25 5 -15" fill="none" stroke="#C62828" stroke-width="3" stroke-linecap="round"/>
+            </g>
+        </g>
+    </svg>
+
+    <div class="title-box">
+        <div class="app-title">우마우마</div>
+    </div>
+</div>
+
+</body>
+</html>
