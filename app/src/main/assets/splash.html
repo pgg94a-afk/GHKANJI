@@ -7,19 +7,32 @@
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
-        body {
-            margin: 0; padding: 0;
-            display: flex;
-            flex-direction: column; /* 세로 정렬 */
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             background-color: #FFFDF5;
-            font-family: 'Pretendard', sans-serif;
-            overflow: hidden;
         }
 
-        svg { width: 260px; height: 260px; overflow: visible; }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Pretendard', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .splash-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        svg { width: 260px; height: 260px; overflow: hidden; }
 
         .kanji-stroke {
             fill: none; stroke: #333;
@@ -102,6 +115,7 @@
 </head>
 <body>
 
+<div class="splash-container">
     <svg viewBox="0 0 240 240">
         <circle cx="120" cy="120" r="100" fill="#FFECB3" opacity="0.4" />
         <g id="kanji-group">
@@ -141,6 +155,7 @@
     <div class="title-box">
         <div class="app-title">우마우마</div>
     </div>
+</div>
 
 </body>
 </html>
