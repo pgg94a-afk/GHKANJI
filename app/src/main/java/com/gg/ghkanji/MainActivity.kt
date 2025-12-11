@@ -21,6 +21,7 @@ sealed class Screen {
     object Main : Screen()
     object LearningGrade : Screen()
     data class LearningStage(val grade: Int, val totalKanji: Int) : Screen()
+    data class KanjiMemorization(val grade: Int, val stage: Stage) : Screen()
 }
 
 class MainActivity : ComponentActivity() {
@@ -63,10 +64,19 @@ class MainActivity : ComponentActivity() {
                         grade = currentScreen.grade,
                         totalKanjiCount = currentScreen.totalKanji,
                         onStageClick = { stage ->
-                            // TODO: 선택한 스테이지 학습 화면으로 이동
+                            currentScreen = Screen.KanjiMemorization(currentScreen.grade, stage)
                         },
                         onBackClick = {
                             currentScreen = Screen.LearningGrade // 학년 선택 화면으로 돌아가기
+                        }
+                    )
+                }
+                is Screen.KanjiMemorization -> {
+                    KanjiMemorizationScreen(
+                        grade = currentScreen.grade,
+                        stage = currentScreen.stage,
+                        onBackClick = {
+                            currentScreen = Screen.LearningStage(currentScreen.grade, currentScreen.stage.endIndex + 1)
                         }
                     )
                 }

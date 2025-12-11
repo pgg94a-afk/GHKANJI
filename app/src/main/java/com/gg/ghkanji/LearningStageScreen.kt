@@ -289,6 +289,37 @@ fun createStages(grade: Int, totalCount: Int): List<Stage> {
         stageNumber++
     }
 
+    // 마지막 2개 그룹의 합이 20~35개 사이면 절반으로 분할
+    if (stages.size >= 2) {
+        val lastStage = stages[stages.size - 1]
+        val secondLastStage = stages[stages.size - 2]
+
+        val lastCount = lastStage.endIndex - lastStage.startIndex + 1
+        val secondLastCount = secondLastStage.endIndex - secondLastStage.startIndex + 1
+        val totalLastTwo = lastCount + secondLastCount
+
+        if (totalLastTwo in 20..35) {
+            // 마지막 2개 그룹을 절반으로 재분할
+            val halfCount = totalLastTwo / 2
+            val newSecondLastEndIndex = secondLastStage.startIndex + halfCount - 1
+            val newLastStartIndex = newSecondLastEndIndex + 1
+
+            stages[stages.size - 2] = Stage(
+                id = secondLastStage.id,
+                label = "$grade-${secondLastStage.id}",
+                startIndex = secondLastStage.startIndex,
+                endIndex = newSecondLastEndIndex
+            )
+
+            stages[stages.size - 1] = Stage(
+                id = lastStage.id,
+                label = "$grade-${lastStage.id}",
+                startIndex = newLastStartIndex,
+                endIndex = lastStage.endIndex
+            )
+        }
+    }
+
     // 졸업시험 스테이지 추가 (모든 한자를 대상으로)
     stages.add(
         Stage(
