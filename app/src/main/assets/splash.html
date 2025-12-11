@@ -20,16 +20,17 @@
             height: 100%;
             min-height: 100vh; /* 최소 높이를 뷰포트 높이로 설정 */
             position: relative;
-            display: flex;
-            justify-content: center; /* 가로 중앙 정렬 */
-            align-items: center; /* 세로 중앙 정렬 */
             background-color: #FFFDF5;
             font-family: 'Pretendard', sans-serif;
             overflow: hidden;
         }
 
-        /* ★ 핵심 수정: 내용물을 감싸는 래퍼 클래스 추가 ★ */
+        /* ★ 절대 위치 기반 센터링 - WebView에서 더 안정적 ★ */
         .content-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: flex;
             flex-direction: column; /* 세로 배치 (그림 위, 글자 아래) */
             align-items: center; /* 내부 요소 가로 중앙 정렬 */
@@ -165,6 +166,26 @@
         <div class="app-title">우마우마</div>
     </div>
 </div>
+
+<script>
+    // WebView에서 스크롤 방지 및 중앙 정렬 보장
+    document.addEventListener('DOMContentLoaded', function() {
+        // 스크롤을 0,0으로 강제 이동
+        window.scrollTo(0, 0);
+
+        // 추가 스크롤 방지
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+
+        // 터치 이동 방지 (이중 보안)
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    });
+
+    // 페이지 로드 즉시도 실행
+    window.scrollTo(0, 0);
+</script>
 
 </body>
 </html>
