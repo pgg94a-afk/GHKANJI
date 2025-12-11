@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -19,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gg.ghkanji.data.KanjiItem
@@ -133,7 +135,7 @@ fun KanjiCard(
                 // 왼쪽: 한자
                 Box(
                     modifier = Modifier
-                        .width(120.dp)
+                        .width(90.dp)
                         .height(140.dp)
                         .clip(RoundedCornerShape(12.dp))
                         .background(Color(0xFFFFE4CC)),
@@ -144,14 +146,14 @@ fun KanjiCard(
                     ) {
                         Text(
                             text = "#$cardNumber",
-                            fontSize = 14.sp,
+                            fontSize = 12.sp,
                             fontWeight = FontWeight.Medium,
                             color = Color(0xFF8B6F5C)
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(4.dp))
                         Text(
                             text = kanjiItem.kanjiWord,
-                            fontSize = 64.sp,
+                            fontSize = 48.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color(0xFF5A4A42)
                         )
@@ -186,18 +188,20 @@ fun KanjiCard(
                                 color = Color(0xFF9AC6E8)
                             )
 
-                            // 음독
-                            InfoText(
+                            // 음독 (더보기 기능)
+                            InfoTextWithExpand(
                                 label = "음독",
-                                value = "${kanjiItem.kanjiUndokHiragana} (${kanjiItem.kanjiUndok})",
+                                hiraganaValue = kanjiItem.kanjiUndokHiragana,
+                                koreanValue = kanjiItem.kanjiUndok,
                                 color = Color(0xFFB5A8D1)
                             )
 
-                            // 훈독
+                            // 훈독 (더보기 기능)
                             if (kanjiItem.kanjiHoondokHiragana.isNotEmpty()) {
-                                InfoText(
+                                InfoTextWithExpand(
                                     label = "훈독",
-                                    value = "${kanjiItem.kanjiHoondokHiragana} (${kanjiItem.kanjiHoondok})",
+                                    hiraganaValue = kanjiItem.kanjiHoondokHiragana,
+                                    koreanValue = kanjiItem.kanjiHoondok,
                                     color = Color(0xFFAED89E)
                                 )
                             }
@@ -275,7 +279,116 @@ fun InfoText(
             text = value,
             fontSize = 13.sp,
             fontWeight = FontWeight.Medium,
-            color = Color(0xFF5A4A42)
+            color = Color(0xFF5A4A42),
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis
         )
+    }
+}
+
+@Composable
+fun InfoTextWithExpand(
+    label: String,
+    hiraganaValue: String,
+    koreanValue: String,
+    color: Color
+) {
+    // 쉼표나 공백으로 구분하여 파싱
+    val hiraganaList = hiraganaValue.split(",", " ", "、").map { it.trim() }.filter { it.isNotEmpty() }
+    val koreanList = koreanValue.split(",", " ", "、").map { it.trim() }.filter { it.isNotEmpty() }
+
+    val showExpand = hiraganaList.size >= 3 || koreanList.size >= 3
+    var expanded by remember { mutableStateOf(false) }
+
+    Box {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .width(50.dp)
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(color)
+                    .padding(vertical = 4.dp, horizontal = 8.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = label,
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            if (showExpand) {
+                // 첫 번째만 표시
+                Text(
+                    text = "${hiraganaList.firstOrNull() ?: ""} (${koreanList.firstOrNull() ?: ""})",
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xFF5A4A42),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+
+                Spacer(modifier = Modifier.width(4.dp))
+
+                // 더보기 버튼
+                Text(
+                    text = "(더보기)",
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = color,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(4.dp))
+                        .clickable { expanded = !expanded }
+                        .padding(horizontal = 4.dp, vertical = 2.dp)
+                )
+            } else {
+                // 3개 미만이면 전체 표시
+                Text(
+                    text = "$hiraganaValue ($koreanValue)",
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xFF5A4A42),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+        }
+
+        // 드롭다운 메뉴 (툴팁처럼 표시)
+        if (showExpand) {
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false },
+                modifier = Modifier
+                    .background(Color.White)
+                    .clip(RoundedCornerShape(8.dp))
+            ) {
+                Column(
+                    modifier = Modifier.padding(12.dp)
+                ) {
+                    Text(
+                        text = "전체 $label",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = color,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    hiraganaList.zip(koreanList).forEach { (hira, kor) ->
+                        Text(
+                            text = "• $hira ($kor)",
+                            fontSize = 12.sp,
+                            color = Color(0xFF5A4A42),
+                            modifier = Modifier.padding(vertical = 2.dp)
+                        )
+                    }
+                }
+            }
+        }
     }
 }
