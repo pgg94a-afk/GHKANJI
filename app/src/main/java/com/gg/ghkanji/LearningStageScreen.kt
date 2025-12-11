@@ -109,33 +109,45 @@ fun LearningStageScreen(
                 // 배경 경로 그리기
                 Canvas(modifier = Modifier.fillMaxSize()) {
                     val pathColor = Color(0xFFFFE4CC)
-                    val pathWidth = size.width * 0.65f
-                    val pathHeight = 200.dp.toPx()
-                    val startX = size.width * 0.18f
                     val strokeWidth = 12.dp.toPx()
+                    val buttonRadius = 50.dp.toPx() // 버튼 반지름 (100dp / 2)
+                    val buttonMargin = 30.dp.toPx() // 버튼의 좌우 마진
+                    val verticalSpacing = 200.dp.toPx() // 버튼 간 세로 간격
 
                     stages.forEachIndexed { index, _ ->
-                        val centerY = index * pathHeight + 80.dp.toPx()
                         val isLeftAlign = index % 2 == 0
+                        val nextIsLeftAlign = (index + 1) % 2 == 0
 
-                        // 연결 곡선 (다음 스테이지로) - 더 부드럽고 자연스러운 S자 곡선
+                        // 현재 버튼의 중심 좌표
+                        val currentCenterX = if (isLeftAlign) {
+                            buttonMargin + buttonRadius // 왼쪽 버튼 중심
+                        } else {
+                            size.width - buttonMargin - buttonRadius // 오른쪽 버튼 중심
+                        }
+                        val currentCenterY = index * verticalSpacing + 30.dp.toPx() + buttonRadius
+
+                        // 연결 곡선 (다음 스테이지로)
                         if (index < stages.size - 1) {
-                            val nextCenterY = (index + 1) * pathHeight + 80.dp.toPx()
-
-                            val startPointX = if (isLeftAlign) startX + pathWidth / 2 else size.width - startX - pathWidth / 2
-                            val endPointX = if (!isLeftAlign) startX + pathWidth / 2 else size.width - startX - pathWidth / 2
+                            // 다음 버튼의 중심 좌표
+                            val nextCenterX = if (nextIsLeftAlign) {
+                                buttonMargin + buttonRadius
+                            } else {
+                                size.width - buttonMargin - buttonRadius
+                            }
+                            val nextCenterY = (index + 1) * verticalSpacing + 30.dp.toPx() + buttonRadius
 
                             val curvePath = Path().apply {
-                                moveTo(startPointX, centerY + 50.dp.toPx())
+                                // 현재 버튼의 하단 가장자리에서 시작
+                                moveTo(currentCenterX, currentCenterY + buttonRadius)
 
                                 // 부드러운 S자 곡선 생성
-                                val controlPoint1Y = centerY + pathHeight * 0.35f
-                                val controlPoint2Y = nextCenterY - pathHeight * 0.35f
+                                val controlPoint1Y = currentCenterY + verticalSpacing * 0.35f
+                                val controlPoint2Y = nextCenterY - verticalSpacing * 0.35f
 
                                 cubicTo(
-                                    startPointX, controlPoint1Y,
-                                    endPointX, controlPoint2Y,
-                                    endPointX, nextCenterY - 50.dp.toPx()
+                                    currentCenterX, controlPoint1Y,
+                                    nextCenterX, controlPoint2Y,
+                                    nextCenterX, nextCenterY - buttonRadius // 다음 버튼의 상단 가장자리
                                 )
                             }
 
