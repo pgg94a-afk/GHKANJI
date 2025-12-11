@@ -293,9 +293,9 @@ fun InfoTextWithExpand(
     koreanValue: String,
     color: Color
 ) {
-    // 쉼표나 공백으로 구분하여 파싱
-    val hiraganaList = hiraganaValue.split(",", " ", "、").map { it.trim() }.filter { it.isNotEmpty() }
-    val koreanList = koreanValue.split(",", " ", "、").map { it.trim() }.filter { it.isNotEmpty() }
+    // 쉼표, 공백, /, 、 등으로 구분하여 파싱
+    val hiraganaList = hiraganaValue.split(Regex("[,\\s、/]+")).map { it.trim() }.filter { it.isNotEmpty() }
+    val koreanList = koreanValue.split(Regex("[,\\s、/]+")).map { it.trim() }.filter { it.isNotEmpty() }
 
     val showExpand = hiraganaList.size >= 3 || koreanList.size >= 3
     var expanded by remember { mutableStateOf(false) }
