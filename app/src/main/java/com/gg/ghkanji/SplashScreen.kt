@@ -43,6 +43,14 @@ fun SplashScreen(
                     settings.useWideViewPort = true
                     settings.loadWithOverviewMode = true
 
+                    // 줌 완전히 비활성화
+                    settings.setSupportZoom(false)
+                    settings.builtInZoomControls = false
+                    settings.displayZoomControls = false
+
+                    // 초기 스케일 100%로 고정
+                    setInitialScale(100)
+
                     // 2. UI 깔끔하게 (스크롤바 제거, 배경 투명)
                     isVerticalScrollBarEnabled = false
                     isHorizontalScrollBarEnabled = false
