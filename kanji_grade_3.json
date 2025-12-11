@@ -1,0 +1,2006 @@
+{
+  "grade": 3,
+  "kanjiString": "悪 安 暗 医 委 意 育 員 院 飲 運 泳 駅 央 横 屋 温 化 荷 界 開 階 寒 感 漢 館 岸 起 期 客 究 急 級 宮 球 去 橋 業 曲 局 銀 区 苦 具 君 係 軽 血 決 研 県 庫 湖 向 幸 港 号 根 祭 皿 仕 死 使 始 指 歯 詩 次 事 持 式 実 写 者 主 守 取 酒 受 州 拾 終 習 集 住 重 宿 所 暑 助 昭 消 商 章 勝 乗 植 申 身 神 真 深 進 世 整 昔 全 相 送 想 息 速 族 他 打 対 待 代 第 題 炭 短 談 着 注 柱 丁 帳 調 追 定 庭 笛 鉄 転 都 度 投 豆 島 湯 登 等 動 童 農 波 配 倍 箱 畑 発 反 坂 板 皮 悲 美 鼻 筆 氷 表 秒 病 品 負 部 服 福 物 平 返 勉 放 味 命 面 問 役 薬 由 油 有 遊 予 羊 洋 葉 陽 様 落 流 旅 両 緑 礼 列 練 路 和",
+  "kanjiList": [
+    {
+      "kanjiWord": "悪",
+      "kanjiHoonUn": "악할 악",
+      "kanjiMean": "나쁘다",
+      "kanjiHoondok": "와루이",
+      "kanjiHoondokHiragana": "わるい",
+      "kanjiUndok": "아쿠 / 오",
+      "kanjiUndokHiragana": "アク、オ",
+      "exampleWord": "最悪 (さいあく : 최악)"
+    },
+    {
+      "kanjiWord": "安",
+      "kanjiHoonUn": "편안할 안",
+      "kanjiMean": "싸다, 편하다",
+      "kanjiHoondok": "야스이",
+      "kanjiHoondokHiragana": "やすい",
+      "kanjiUndok": "안",
+      "kanjiUndokHiragana": "アン",
+      "exampleWord": "安心 (あんしん : 안심)"
+    },
+    {
+      "kanjiWord": "暗",
+      "kanjiHoonUn": "어두울 암",
+      "kanjiMean": "어둡다",
+      "kanjiHoondok": "쿠라이",
+      "kanjiHoondokHiragana": "くらい",
+      "kanjiUndok": "안",
+      "kanjiUndokHiragana": "アン",
+      "exampleWord": "暗記 (あんき : 암기)"
+    },
+    {
+      "kanjiWord": "医",
+      "kanjiHoonUn": "의원 의",
+      "kanjiMean": "의사, 의학",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "이",
+      "kanjiUndokHiragana": "イ",
+      "exampleWord": "医者 (いしゃ : 의사)"
+    },
+    {
+      "kanjiWord": "委",
+      "kanjiHoonUn": "맡길 위",
+      "kanjiMean": "맡기다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "이",
+      "kanjiUndokHiragana": "イ",
+      "exampleWord": "委員 (いいん : 위원)"
+    },
+    {
+      "kanjiWord": "意",
+      "kanjiHoonUn": "뜻 의",
+      "kanjiMean": "마음, 생각",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "이",
+      "kanjiUndokHiragana": "イ",
+      "exampleWord": "意味 (いみ : 의미)"
+    },
+    {
+      "kanjiWord": "育",
+      "kanjiHoonUn": "기를 육",
+      "kanjiMean": "자라다, 기르다",
+      "kanjiHoondok": "소다테루 / 소다츠",
+      "kanjiHoondokHiragana": "そだてる、そだつ",
+      "kanjiUndok": "이쿠",
+      "kanjiUndokHiragana": "イク",
+      "exampleWord": "教育 (きょういく : 교육)"
+    },
+    {
+      "kanjiWord": "員",
+      "kanjiHoonUn": "수효 원",
+      "kanjiMean": "인원",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "인",
+      "kanjiUndokHiragana": "イン",
+      "exampleWord": "社員 (しゃいん : 사원)"
+    },
+    {
+      "kanjiWord": "院",
+      "kanjiHoonUn": "집 원",
+      "kanjiMean": "기관, 건물",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "인",
+      "kanjiUndokHiragana": "イン",
+      "exampleWord": "病院 (びょういん : 병원)"
+    },
+    {
+      "kanjiWord": "飲",
+      "kanjiHoonUn": "마실 음",
+      "kanjiMean": "마시다",
+      "kanjiHoondok": "노무",
+      "kanjiHoondokHiragana": "のむ",
+      "kanjiUndok": "인",
+      "kanjiUndokHiragana": "イン",
+      "exampleWord": "飲食店 (いんしょくてん : 음식점)"
+    },
+    {
+      "kanjiWord": "運",
+      "kanjiHoonUn": "옮길 운",
+      "kanjiMean": "나르다, 운",
+      "kanjiHoondok": "하코부",
+      "kanjiHoondokHiragana": "はこぶ",
+      "kanjiUndok": "운",
+      "kanjiUndokHiragana": "ウン",
+      "exampleWord": "運動 (うんどう : 운동)"
+    },
+    {
+      "kanjiWord": "泳",
+      "kanjiHoonUn": "헤엄칠 영",
+      "kanjiMean": "헤엄치다",
+      "kanjiHoondok": "오요구",
+      "kanjiHoondokHiragana": "およぐ",
+      "kanjiUndok": "에이",
+      "kanjiUndokHiragana": "エイ",
+      "exampleWord": "水泳 (すいえい : 수영)"
+    },
+    {
+      "kanjiWord": "駅",
+      "kanjiHoonUn": "역 역",
+      "kanjiMean": "정거장",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "에키",
+      "kanjiUndokHiragana": "エキ",
+      "exampleWord": "駅長 (えきちょう : 역장)"
+    },
+    {
+      "kanjiWord": "央",
+      "kanjiHoonUn": "가운데 앙",
+      "kanjiMean": "중앙",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "오우",
+      "kanjiUndokHiragana": "オウ",
+      "exampleWord": "中央 (ちゅうおう : 중앙)"
+    },
+    {
+      "kanjiWord": "横",
+      "kanjiHoonUn": "가로 횡",
+      "kanjiMean": "옆, 가로",
+      "kanjiHoondok": "요코",
+      "kanjiHoondokHiragana": "よこ",
+      "kanjiUndok": "오우",
+      "kanjiUndokHiragana": "オウ",
+      "exampleWord": "横断 (おうだん : 횡단)"
+    },
+    {
+      "kanjiWord": "屋",
+      "kanjiHoonUn": "집 옥",
+      "kanjiMean": "가게, 지붕",
+      "kanjiHoondok": "야",
+      "kanjiHoondokHiragana": "や",
+      "kanjiUndok": "오쿠",
+      "kanjiUndokHiragana": "オク",
+      "exampleWord": "屋上 (おくじょう : 옥상)"
+    },
+    {
+      "kanjiWord": "温",
+      "kanjiHoonUn": "따뜻할 온",
+      "kanjiMean": "따뜻하다",
+      "kanjiHoondok": "아타타카이 / 아타타카나 / 아타타메루 / 아타타마루",
+      "kanjiHoondokHiragana": "あたたかい、あたたかな、あたためる、あたたまる",
+      "kanjiUndok": "온",
+      "kanjiUndokHiragana": "オン",
+      "exampleWord": "気温 (きおん : 기온)"
+    },
+    {
+      "kanjiWord": "化",
+      "kanjiHoonUn": "될 화",
+      "kanjiMean": "변하다",
+      "kanjiHoondok": "바케루 / 바카스",
+      "kanjiHoondokHiragana": "ばける、ばかす",
+      "kanjiUndok": "카 / 케",
+      "kanjiUndokHiragana": "カ、ケ",
+      "exampleWord": "文化 (ぶんか : 문화)"
+    },
+    {
+      "kanjiWord": "荷",
+      "kanjiHoonUn": "짐 하",
+      "kanjiMean": "짐",
+      "kanjiHoondok": "니",
+      "kanjiHoondokHiragana": "に",
+      "kanjiUndok": "카",
+      "kanjiUndokHiragana": "カ",
+      "exampleWord": "荷物 (にもつ : 짐)"
+    },
+    {
+      "kanjiWord": "界",
+      "kanjiHoonUn": "지경 계",
+      "kanjiMean": "세계, 경계",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "카이",
+      "kanjiUndokHiragana": "カイ",
+      "exampleWord": "世界 (せかい : 세계)"
+    },
+    {
+      "kanjiWord": "開",
+      "kanjiHoonUn": "열 개",
+      "kanjiMean": "열다",
+      "kanjiHoondok": "아케루 / 히라쿠 / 히라케루 / 아쿠",
+      "kanjiHoondokHiragana": "あける、ひらく、ひらける、あく",
+      "kanjiUndok": "카이",
+      "kanjiUndokHiragana": "カイ",
+      "exampleWord": "開始 (かいし : 개시)"
+    },
+    {
+      "kanjiWord": "階",
+      "kanjiHoonUn": "섬돌 계",
+      "kanjiMean": "층, 계단",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "카이",
+      "kanjiUndokHiragana": "カイ",
+      "exampleWord": "階段 (かいだん : 계단)"
+    },
+    {
+      "kanjiWord": "寒",
+      "kanjiHoonUn": "찰 한",
+      "kanjiMean": "춥다",
+      "kanjiHoondok": "사무이",
+      "kanjiHoondokHiragana": "さむい",
+      "kanjiUndok": "칸",
+      "kanjiUndokHiragana": "カン",
+      "exampleWord": "寒気 (さむけ : 오한)"
+    },
+    {
+      "kanjiWord": "感",
+      "kanjiHoonUn": "느낄 감",
+      "kanjiMean": "느끼다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "칸",
+      "kanjiUndokHiragana": "カン",
+      "exampleWord": "感動 (かんどう : 감동)"
+    },
+    {
+      "kanjiWord": "漢",
+      "kanjiHoonUn": "한나라 한",
+      "kanjiMean": "한자",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "칸",
+      "kanjiUndokHiragana": "カン",
+      "exampleWord": "漢字 (かんじ : 한자)"
+    },
+    {
+      "kanjiWord": "館",
+      "kanjiHoonUn": "집 관",
+      "kanjiMean": "건물",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "칸",
+      "kanjiUndokHiragana": "カン",
+      "exampleWord": "図書館 (としょかん : 도서관)"
+    },
+    {
+      "kanjiWord": "岸",
+      "kanjiHoonUn": "언덕 안",
+      "kanjiMean": "해안, 언덕",
+      "kanjiHoondok": "키시",
+      "kanjiHoondokHiragana": "きし",
+      "kanjiUndok": "간",
+      "kanjiUndokHiragana": "ガン",
+      "exampleWord": "海岸 (かいがん : 해안)"
+    },
+    {
+      "kanjiWord": "起",
+      "kanjiHoonUn": "일어날 기",
+      "kanjiMean": "일어나다",
+      "kanjiHoondok": "오키루 / 오코스 / 오코루",
+      "kanjiHoondokHiragana": "おきる、おこす、おこる",
+      "kanjiUndok": "키",
+      "kanjiUndokHiragana": "キ",
+      "exampleWord": "起立 (きりつ : 기립)"
+    },
+    {
+      "kanjiWord": "期",
+      "kanjiHoonUn": "기약할 기",
+      "kanjiMean": "기간, 시기",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "키 / 고",
+      "kanjiUndokHiragana": "キ、ゴ",
+      "exampleWord": "期待 (きたい : 기대)"
+    },
+    {
+      "kanjiWord": "客",
+      "kanjiHoonUn": "손 객",
+      "kanjiMean": "손님",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "캬쿠 / 카쿠",
+      "kanjiUndokHiragana": "キャク、カク",
+      "exampleWord": "乗客 (じょうきゃく : 승객)"
+    },
+    {
+      "kanjiWord": "究",
+      "kanjiHoonUn": "연구할 구",
+      "kanjiMean": "궁구하다",
+      "kanjiHoondok": "키와메루",
+      "kanjiHoondokHiragana": "きわめる",
+      "kanjiUndok": "큐우",
+      "kanjiUndokHiragana": "キュウ",
+      "exampleWord": "研究 (けんきゅう : 연구)"
+    },
+    {
+      "kanjiWord": "急",
+      "kanjiHoonUn": "급할 급",
+      "kanjiMean": "서두르다",
+      "kanjiHoondok": "이소구",
+      "kanjiHoondokHiragana": "いそぐ",
+      "kanjiUndok": "큐우",
+      "kanjiUndokHiragana": "キュウ",
+      "exampleWord": "急行 (きゅうこう : 급행)"
+    },
+    {
+      "kanjiWord": "級",
+      "kanjiHoonUn": "등급 급",
+      "kanjiMean": "등급",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "큐우",
+      "kanjiUndokHiragana": "キュウ",
+      "exampleWord": "高級 (こうきゅう : 고급)"
+    },
+    {
+      "kanjiWord": "宮",
+      "kanjiHoonUn": "집 궁",
+      "kanjiMean": "궁궐",
+      "kanjiHoondok": "미야",
+      "kanjiHoondokHiragana": "みや",
+      "kanjiUndok": "큐우 / 구우 / 쿠",
+      "kanjiUndokHiragana": "キュウ、グウ、ク",
+      "exampleWord": "神宮 (じんぐう : 신궁)"
+    },
+    {
+      "kanjiWord": "球",
+      "kanjiHoonUn": "공 구",
+      "kanjiMean": "공",
+      "kanjiHoondok": "타마",
+      "kanjiHoondokHiragana": "たま",
+      "kanjiUndok": "큐우",
+      "kanjiUndokHiragana": "キュウ",
+      "exampleWord": "野球 (やきゅう : 야구)"
+    },
+    {
+      "kanjiWord": "去",
+      "kanjiHoonUn": "갈 거",
+      "kanjiMean": "떠나다",
+      "kanjiHoondok": "사루",
+      "kanjiHoondokHiragana": "さる",
+      "kanjiUndok": "쿄 / 코",
+      "kanjiUndokHiragana": "キョ、コ",
+      "exampleWord": "過去 (かこ : 과거)"
+    },
+    {
+      "kanjiWord": "橋",
+      "kanjiHoonUn": "다리 교",
+      "kanjiMean": "다리",
+      "kanjiHoondok": "하시",
+      "kanjiHoondokHiragana": "はし",
+      "kanjiUndok": "쿄우",
+      "kanjiUndokHiragana": "キョウ",
+      "exampleWord": "鉄橋 (てっきょう : 철교)"
+    },
+    {
+      "kanjiWord": "業",
+      "kanjiHoonUn": "업 업",
+      "kanjiMean": "일, 업",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "교우 / 고우",
+      "kanjiUndokHiragana": "ギョウ、ゴウ",
+      "exampleWord": "産業 (さんぎょう : 산업)"
+    },
+    {
+      "kanjiWord": "曲",
+      "kanjiHoonUn": "굽을 곡",
+      "kanjiMean": "굽다, 노래",
+      "kanjiHoondok": "마가루 / 마게루",
+      "kanjiHoondokHiragana": "まがる、まげる",
+      "kanjiUndok": "쿄쿠",
+      "kanjiUndokHiragana": "キョク",
+      "exampleWord": "曲線 (きょくせん : 곡선)"
+    },
+    {
+      "kanjiWord": "局",
+      "kanjiHoonUn": "판 국",
+      "kanjiMean": "국, 관청",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "쿄쿠",
+      "kanjiUndokHiragana": "キョク",
+      "exampleWord": "郵便局 (ゆうびんきょく : 우체국)"
+    },
+    {
+      "kanjiWord": "銀",
+      "kanjiHoonUn": "은 은",
+      "kanjiMean": "은",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "긴",
+      "kanjiUndokHiragana": "ギン",
+      "exampleWord": "銀行 (ぎんこう : 은행)"
+    },
+    {
+      "kanjiWord": "区",
+      "kanjiHoonUn": "구역 구",
+      "kanjiMean": "구역",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "쿠",
+      "kanjiUndokHiragana": "ク",
+      "exampleWord": "区分 (くぶん : 구분)"
+    },
+    {
+      "kanjiWord": "苦",
+      "kanjiHoonUn": "쓸 고",
+      "kanjiMean": "괴롭다, 쓰다",
+      "kanjiHoondok": "쿠루시이 / 쿠루시메루 / 쿠루시무 / 니가이 / 니가루",
+      "kanjiHoondokHiragana": "くるしい、くるしめる、くるしむ、にがい、にがる",
+      "kanjiUndok": "쿠",
+      "kanjiUndokHiragana": "ク",
+      "exampleWord": "苦労 (くろう : 고생)"
+    },
+    {
+      "kanjiWord": "具",
+      "kanjiHoonUn": "갖출 구",
+      "kanjiMean": "도구",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "구",
+      "kanjiUndokHiragana": "グ",
+      "exampleWord": "道具 (どうぐ : 도구)"
+    },
+    {
+      "kanjiWord": "君",
+      "kanjiHoonUn": "임금 군",
+      "kanjiMean": "자네, 너",
+      "kanjiHoondok": "키미",
+      "kanjiHoondokHiragana": "きみ",
+      "kanjiUndok": "쿤",
+      "kanjiUndokHiragana": "クン",
+      "exampleWord": "諸君 (しょくん : 제군)"
+    },
+    {
+      "kanjiWord": "係",
+      "kanjiHoonUn": "맬 계",
+      "kanjiMean": "담당, 관계",
+      "kanjiHoondok": "카카리",
+      "kanjiHoondokHiragana": "かかり",
+      "kanjiUndok": "케이",
+      "kanjiUndokHiragana": "ケイ",
+      "exampleWord": "関係 (かんけい : 관계)"
+    },
+    {
+      "kanjiWord": "軽",
+      "kanjiHoonUn": "가벼울 경",
+      "kanjiMean": "가볍다",
+      "kanjiHoondok": "카루이",
+      "kanjiHoondokHiragana": "かるい",
+      "kanjiUndok": "케이",
+      "kanjiUndokHiragana": "ケイ",
+      "exampleWord": "軽食 (けいしょく : 가벼운 식사)"
+    },
+    {
+      "kanjiWord": "血",
+      "kanjiHoonUn": "피 혈",
+      "kanjiMean": "피",
+      "kanjiHoondok": "치",
+      "kanjiHoondokHiragana": "ち",
+      "kanjiUndok": "케츠",
+      "kanjiUndokHiragana": "ケツ",
+      "exampleWord": "出血 (しゅっけつ : 출혈)"
+    },
+    {
+      "kanjiWord": "決",
+      "kanjiHoonUn": "결단할 결",
+      "kanjiMean": "정하다",
+      "kanjiHoondok": "키메루 / 키마루",
+      "kanjiHoondokHiragana": "きめる、きまる",
+      "kanjiUndok": "케츠",
+      "kanjiUndokHiragana": "ケツ",
+      "exampleWord": "決定 (けってい : 결정)"
+    },
+    {
+      "kanjiWord": "県",
+      "kanjiHoonUn": "고을 현",
+      "kanjiMean": "현(행정구역)",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "켄",
+      "kanjiUndokHiragana": "ケン",
+      "exampleWord": "県庁 (けんちょう : 현청)"
+    },
+    {
+      "kanjiWord": "研",
+      "kanjiHoonUn": "갈 연",
+      "kanjiMean": "갈다, 연구",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "켄",
+      "kanjiUndokHiragana": "ケン",
+      "exampleWord": "研究 (けんきゅう : 연구)"
+    },
+    {
+      "kanjiWord": "庫",
+      "kanjiHoonUn": "곳집 고",
+      "kanjiMean": "창고",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "코 / 쿠",
+      "kanjiUndokHiragana": "コ、ク",
+      "exampleWord": "金庫 (きんこ : 금고)"
+    },
+    {
+      "kanjiWord": "湖",
+      "kanjiHoonUn": "호수 호",
+      "kanjiMean": "호수",
+      "kanjiHoondok": "미즈우미",
+      "kanjiHoondokHiragana": "みずうみ",
+      "kanjiUndok": "코",
+      "kanjiUndokHiragana": "コ",
+      "exampleWord": "湖畔 (こはん : 호반)"
+    },
+    {
+      "kanjiWord": "向",
+      "kanjiHoonUn": "향할 향",
+      "kanjiMean": "향하다",
+      "kanjiHoondok": "무쿠 / 무카우 / 무케루 / 무코우",
+      "kanjiHoondokHiragana": "むく、むかう、むける、むこう",
+      "kanjiUndok": "코우",
+      "kanjiUndokHiragana": "コウ",
+      "exampleWord": "方向 (ほうこう : 방향)"
+    },
+    {
+      "kanjiWord": "幸",
+      "kanjiHoonUn": "다행 행",
+      "kanjiMean": "행복",
+      "kanjiHoondok": "시아와세 / 사이와이",
+      "kanjiHoondokHiragana": "しあわせ、さいわい",
+      "kanjiUndok": "코우",
+      "kanjiUndokHiragana": "コウ",
+      "exampleWord": "幸福 (こうふく : 행복)"
+    },
+    {
+      "kanjiWord": "港",
+      "kanjiHoonUn": "항구 항",
+      "kanjiMean": "항구",
+      "kanjiHoondok": "미나토",
+      "kanjiHoondokHiragana": "みなと",
+      "kanjiUndok": "코우",
+      "kanjiUndokHiragana": "コウ",
+      "exampleWord": "空港 (くうこう : 공항)"
+    },
+    {
+      "kanjiWord": "号",
+      "kanjiHoonUn": "이름 호",
+      "kanjiMean": "번호, 부르다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "고우",
+      "kanjiUndokHiragana": "ゴウ",
+      "exampleWord": "信号 (しんごう : 신호)"
+    },
+    {
+      "kanjiWord": "根",
+      "kanjiHoonUn": "뿌리 근",
+      "kanjiMean": "뿌리",
+      "kanjiHoondok": "네",
+      "kanjiHoondokHiragana": "ね",
+      "kanjiUndok": "콘",
+      "kanjiUndokHiragana": "コン",
+      "exampleWord": "大根 (だいこん : 무)"
+    },
+    {
+      "kanjiWord": "祭",
+      "kanjiHoonUn": "제사 제",
+      "kanjiMean": "축제, 제사",
+      "kanjiHoondok": "마츠리 / 마츠루",
+      "kanjiHoondokHiragana": "まつり、まつる",
+      "kanjiUndok": "사이",
+      "kanjiUndokHiragana": "サイ",
+      "exampleWord": "文化祭 (ぶんかさい : 문화제)"
+    },
+    {
+      "kanjiWord": "皿",
+      "kanjiHoonUn": "그릇 명",
+      "kanjiMean": "접시",
+      "kanjiHoondok": "사라",
+      "kanjiHoondokHiragana": "さら",
+      "kanjiUndok": "베이",
+      "kanjiUndokHiragana": "ベイ",
+      "exampleWord": "灰皿 (はいざら : 재떨이)"
+    },
+    {
+      "kanjiWord": "仕",
+      "kanjiHoonUn": "섬길 사",
+      "kanjiMean": "섬기다, 하다",
+      "kanjiHoondok": "츠카에루",
+      "kanjiHoondokHiragana": "つかえる",
+      "kanjiUndok": "시 / 지",
+      "kanjiUndokHiragana": "シ、ジ",
+      "exampleWord": "仕事 (しごと : 일)"
+    },
+    {
+      "kanjiWord": "死",
+      "kanjiHoonUn": "죽을 사",
+      "kanjiMean": "죽다",
+      "kanjiHoondok": "시누",
+      "kanjiHoondokHiragana": "しぬ",
+      "kanjiUndok": "시",
+      "kanjiUndokHiragana": "シ",
+      "exampleWord": "必死 (ひっし : 필사적)"
+    },
+    {
+      "kanjiWord": "使",
+      "kanjiHoonUn": "부릴 사",
+      "kanjiMean": "쓰다, 사용하다",
+      "kanjiHoondok": "츠카우",
+      "kanjiHoondokHiragana": "つかう",
+      "kanjiUndok": "시",
+      "kanjiUndokHiragana": "シ",
+      "exampleWord": "使用 (しよう : 사용)"
+    },
+    {
+      "kanjiWord": "始",
+      "kanjiHoonUn": "비로소 시",
+      "kanjiMean": "시작하다",
+      "kanjiHoondok": "하지메루 / 하지마루",
+      "kanjiHoondokHiragana": "はじめる、はじまる",
+      "kanjiUndok": "시",
+      "kanjiUndokHiragana": "シ",
+      "exampleWord": "開始 (かいし : 개시)"
+    },
+    {
+      "kanjiWord": "指",
+      "kanjiHoonUn": "손가락 지",
+      "kanjiMean": "손가락, 가리키다",
+      "kanjiHoondok": "유비 / 사스",
+      "kanjiHoondokHiragana": "ゆび、さす",
+      "kanjiUndok": "시",
+      "kanjiUndokHiragana": "シ",
+      "exampleWord": "指定 (してい : 지정)"
+    },
+    {
+      "kanjiWord": "歯",
+      "kanjiHoonUn": "이 치",
+      "kanjiMean": "이(치아)",
+      "kanjiHoondok": "하",
+      "kanjiHoondokHiragana": "は",
+      "kanjiUndok": "시",
+      "kanjiUndokHiragana": "シ",
+      "exampleWord": "歯科 (しか : 치과)"
+    },
+    {
+      "kanjiWord": "詩",
+      "kanjiHoonUn": "시 시",
+      "kanjiMean": "시",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "시",
+      "kanjiUndokHiragana": "シ",
+      "exampleWord": "詩人 (しじん : 시인)"
+    },
+    {
+      "kanjiWord": "次",
+      "kanjiHoonUn": "버금 차",
+      "kanjiMean": "다음",
+      "kanjiHoondok": "츠구 / 츠기",
+      "kanjiHoondokHiragana": "つぐ、つぎ",
+      "kanjiUndok": "지 / 시",
+      "kanjiUndokHiragana": "ジ、シ",
+      "exampleWord": "目次 (もくじ : 목차)"
+    },
+    {
+      "kanjiWord": "事",
+      "kanjiHoonUn": "일 사",
+      "kanjiMean": "일",
+      "kanjiHoondok": "코토",
+      "kanjiHoondokHiragana": "こと",
+      "kanjiUndok": "지 / 즈",
+      "kanjiUndokHiragana": "ジ、ズ",
+      "exampleWord": "食事 (しょくじ : 식사)"
+    },
+    {
+      "kanjiWord": "持",
+      "kanjiHoonUn": "가질 지",
+      "kanjiMean": "가지다",
+      "kanjiHoondok": "모츠",
+      "kanjiHoondokHiragana": "もつ",
+      "kanjiUndok": "지",
+      "kanjiUndokHiragana": "ジ",
+      "exampleWord": "気持ち (きもち : 마음/기분)"
+    },
+    {
+      "kanjiWord": "式",
+      "kanjiHoonUn": "법 식",
+      "kanjiMean": "방식, 식",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "시키",
+      "kanjiUndokHiragana": "シキ",
+      "exampleWord": "入学式 (にゅうがくしき : 입학식)"
+    },
+    {
+      "kanjiWord": "実",
+      "kanjiHoonUn": "열매 실",
+      "kanjiMean": "열매, 참되다",
+      "kanjiHoondok": "미노루 / 미",
+      "kanjiHoondokHiragana": "みのる、み",
+      "kanjiUndok": "지츠",
+      "kanjiUndokHiragana": "ジツ",
+      "exampleWord": "事実 (じじつ : 사실)"
+    },
+    {
+      "kanjiWord": "写",
+      "kanjiHoonUn": "베낄 사",
+      "kanjiMean": "베끼다, 찍다",
+      "kanjiHoondok": "우츠스 / 우츠루",
+      "kanjiHoondokHiragana": "うつす、うつる",
+      "kanjiUndok": "샤",
+      "kanjiUndokHiragana": "シャ",
+      "exampleWord": "写真 (しゃしん : 사진)"
+    },
+    {
+      "kanjiWord": "者",
+      "kanjiHoonUn": "놈 자",
+      "kanjiMean": "사람",
+      "kanjiHoondok": "모노",
+      "kanjiHoondokHiragana": "もの",
+      "kanjiUndok": "샤",
+      "kanjiUndokHiragana": "シャ",
+      "exampleWord": "若者 (わかもの : 젊은이)"
+    },
+    {
+      "kanjiWord": "主",
+      "kanjiHoonUn": "주인 주",
+      "kanjiMean": "주인, 주되다",
+      "kanjiHoondok": "누시 / 오모",
+      "kanjiHoondokHiragana": "ぬし、おも",
+      "kanjiUndok": "슈 / 스",
+      "kanjiUndokHiragana": "シュ、ス",
+      "exampleWord": "主人 (しゅじん : 남편/주인)"
+    },
+    {
+      "kanjiWord": "守",
+      "kanjiHoonUn": "지킬 수",
+      "kanjiMean": "지키다",
+      "kanjiHoondok": "마모루",
+      "kanjiHoondokHiragana": "まもる",
+      "kanjiUndok": "슈 / 스",
+      "kanjiUndokHiragana": "シュ、ス",
+      "exampleWord": "留守 (るす : 부재중)"
+    },
+    {
+      "kanjiWord": "取",
+      "kanjiHoonUn": "취할 취",
+      "kanjiMean": "취하다, 잡다",
+      "kanjiHoondok": "토루",
+      "kanjiHoondokHiragana": "とる",
+      "kanjiUndok": "슈",
+      "kanjiUndokHiragana": "シュ",
+      "exampleWord": "取得 (しゅとく : 취득)"
+    },
+    {
+      "kanjiWord": "酒",
+      "kanjiHoonUn": "술 주",
+      "kanjiMean": "술",
+      "kanjiHoondok": "사케 / 사카",
+      "kanjiHoondokHiragana": "さけ、さか",
+      "kanjiUndok": "슈",
+      "kanjiUndokHiragana": "シュ",
+      "exampleWord": "日本酒 (にほんしゅ : 일본주)"
+    },
+    {
+      "kanjiWord": "受",
+      "kanjiHoonUn": "받을 수",
+      "kanjiMean": "받다",
+      "kanjiHoondok": "우케루 / 우카루",
+      "kanjiHoondokHiragana": "うける、うかる",
+      "kanjiUndok": "쥬",
+      "kanjiUndokHiragana": "ジュ",
+      "exampleWord": "受験 (じゅけん : 수험)"
+    },
+    {
+      "kanjiWord": "州",
+      "kanjiHoonUn": "고을 주",
+      "kanjiMean": "주(행정구역)",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "슈우",
+      "kanjiUndokHiragana": "シュウ",
+      "exampleWord": "九州 (きゅうしゅう : 규슈)"
+    },
+    {
+      "kanjiWord": "拾",
+      "kanjiHoonUn": "주울 습",
+      "kanjiMean": "줍다",
+      "kanjiHoondok": "히로우",
+      "kanjiHoondokHiragana": "ひろう",
+      "kanjiUndok": "슈우 / 쥬우",
+      "kanjiUndokHiragana": "シュウ、ジュウ",
+      "exampleWord": "拾得 (しゅうとく : 습득)"
+    },
+    {
+      "kanjiWord": "終",
+      "kanjiHoonUn": "마칠 종",
+      "kanjiMean": "끝나다",
+      "kanjiHoondok": "오와루 / 오에루",
+      "kanjiHoondokHiragana": "おわる、おえる",
+      "kanjiUndok": "슈우",
+      "kanjiUndokHiragana": "シュウ",
+      "exampleWord": "終了 (しゅうりょう : 종료)"
+    },
+    {
+      "kanjiWord": "習",
+      "kanjiHoonUn": "익힐 습",
+      "kanjiMean": "배우다",
+      "kanjiHoondok": "나라우",
+      "kanjiHoondokHiragana": "ならう",
+      "kanjiUndok": "슈우",
+      "kanjiUndokHiragana": "シュウ",
+      "exampleWord": "練習 (れんしゅう : 연습)"
+    },
+    {
+      "kanjiWord": "集",
+      "kanjiHoonUn": "모을 집",
+      "kanjiMean": "모으다",
+      "kanjiHoondok": "아츠메루 / 아츠마루",
+      "kanjiHoondokHiragana": "あつめる、あつまる",
+      "kanjiUndok": "슈우",
+      "kanjiUndokHiragana": "シュウ",
+      "exampleWord": "集合 (しゅうごう : 집합)"
+    },
+    {
+      "kanjiWord": "住",
+      "kanjiHoonUn": "살 주",
+      "kanjiMean": "살다",
+      "kanjiHoondok": "스무 / 스마이",
+      "kanjiHoondokHiragana": "すむ、すまい",
+      "kanjiUndok": "쥬우",
+      "kanjiUndokHiragana": "ジュウ",
+      "exampleWord": "住所 (じゅうしょ : 주소)"
+    },
+    {
+      "kanjiWord": "重",
+      "kanjiHoonUn": "무거울 중",
+      "kanjiMean": "무겁다",
+      "kanjiHoondok": "오모이 / 카사네루 / 카사나루",
+      "kanjiHoondokHiragana": "おもい、かさねる、かさなる",
+      "kanjiUndok": "쥬우 / 쵸우",
+      "kanjiUndokHiragana": "ジュウ、チョウ",
+      "exampleWord": "体重 (たいじゅう : 체중)"
+    },
+    {
+      "kanjiWord": "宿",
+      "kanjiHoonUn": "잘 숙",
+      "kanjiMean": "묵다, 숙소",
+      "kanjiHoondok": "야도 / 야도루 / 야도스",
+      "kanjiHoondokHiragana": "やど、やどる、やどす",
+      "kanjiUndok": "슈쿠",
+      "kanjiUndokHiragana": "シュク",
+      "exampleWord": "宿題 (しゅくだい : 숙제)"
+    },
+    {
+      "kanjiWord": "所",
+      "kanjiHoonUn": "바 소",
+      "kanjiMean": "장소, 곳",
+      "kanjiHoondok": "토코로",
+      "kanjiHoondokHiragana": "ところ",
+      "kanjiUndok": "쇼",
+      "kanjiUndokHiragana": "ショ",
+      "exampleWord": "台所 (だいどころ : 부엌)"
+    },
+    {
+      "kanjiWord": "暑",
+      "kanjiHoonUn": "더울 서",
+      "kanjiMean": "덥다",
+      "kanjiHoondok": "아츠이",
+      "kanjiHoondokHiragana": "あつい",
+      "kanjiUndok": "쇼",
+      "kanjiUndokHiragana": "ショ",
+      "exampleWord": "暑中 (しょちゅう : 복중/한여름)"
+    },
+    {
+      "kanjiWord": "助",
+      "kanjiHoonUn": "도울 조",
+      "kanjiMean": "돕다",
+      "kanjiHoondok": "타스케루 / 타스카루",
+      "kanjiHoondokHiragana": "たすける、たすかる",
+      "kanjiUndok": "죠",
+      "kanjiUndokHiragana": "ジョ",
+      "exampleWord": "救助 (きゅうじょ : 구조)"
+    },
+    {
+      "kanjiWord": "昭",
+      "kanjiHoonUn": "밝을 소",
+      "kanjiMean": "밝다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "쇼우",
+      "kanjiUndokHiragana": "ショウ",
+      "exampleWord": "昭和 (しょうわ : 쇼와)"
+    },
+    {
+      "kanjiWord": "消",
+      "kanjiHoonUn": "사라질 소",
+      "kanjiMean": "지우다, 사라지다",
+      "kanjiHoondok": "키에루 / 케스",
+      "kanjiHoondokHiragana": "きえる、けす",
+      "kanjiUndok": "쇼우",
+      "kanjiUndokHiragana": "ショウ",
+      "exampleWord": "消化 (しょうか : 소화)"
+    },
+    {
+      "kanjiWord": "商",
+      "kanjiHoonUn": "장사 상",
+      "kanjiMean": "장사",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "쇼우",
+      "kanjiUndokHiragana": "ショウ",
+      "exampleWord": "商店 (しょうてん : 상점)"
+    },
+    {
+      "kanjiWord": "章",
+      "kanjiHoonUn": "글 장",
+      "kanjiMean": "문장, 글",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "쇼우",
+      "kanjiUndokHiragana": "ショウ",
+      "exampleWord": "文章 (ぶんしょう : 문장)"
+    },
+    {
+      "kanjiWord": "勝",
+      "kanjiHoonUn": "이길 승",
+      "kanjiMean": "이기다",
+      "kanjiHoondok": "카츠",
+      "kanjiHoondokHiragana": "かつ",
+      "kanjiUndok": "쇼우",
+      "kanjiUndokHiragana": "ショウ",
+      "exampleWord": "優勝 (ゆうしょう : 우승)"
+    },
+    {
+      "kanjiWord": "乗",
+      "kanjiHoonUn": "탈 승",
+      "kanjiMean": "타다",
+      "kanjiHoondok": "노루 / 노세루",
+      "kanjiHoondokHiragana": "のる、のせる",
+      "kanjiUndok": "죠우",
+      "kanjiUndokHiragana": "ジョウ",
+      "exampleWord": "乗車 (じょうしゃ : 승차)"
+    },
+    {
+      "kanjiWord": "植",
+      "kanjiHoonUn": "심을 식",
+      "kanjiMean": "심다",
+      "kanjiHoondok": "우에루 / 우와루",
+      "kanjiHoondokHiragana": "うえる、うわる",
+      "kanjiUndok": "쇼쿠",
+      "kanjiUndokHiragana": "ショク",
+      "exampleWord": "植物 (しょくぶつ : 식물)"
+    },
+    {
+      "kanjiWord": "申",
+      "kanjiHoonUn": "아뢸 신",
+      "kanjiMean": "말하다(겸양)",
+      "kanjiHoondok": "모우스",
+      "kanjiHoondokHiragana": "もうす",
+      "kanjiUndok": "신",
+      "kanjiUndokHiragana": "シン",
+      "exampleWord": "申請 (しんせい : 신청)"
+    },
+    {
+      "kanjiWord": "身",
+      "kanjiHoonUn": "몸 신",
+      "kanjiMean": "몸",
+      "kanjiHoondok": "미",
+      "kanjiHoondokHiragana": "み",
+      "kanjiUndok": "신",
+      "kanjiUndokHiragana": "シン",
+      "exampleWord": "出身 (しゅっしん : 출신)"
+    },
+    {
+      "kanjiWord": "神",
+      "kanjiHoonUn": "귀신 신",
+      "kanjiMean": "신",
+      "kanjiHoondok": "카미 / 칸 / 코우",
+      "kanjiHoondokHiragana": "かみ、かん、こう",
+      "kanjiUndok": "신 / 진",
+      "kanjiUndokHiragana": "シン、ジン",
+      "exampleWord": "神社 (じんじゃ : 신사)"
+    },
+    {
+      "kanjiWord": "真",
+      "kanjiHoonUn": "참 진",
+      "kanjiMean": "참, 진실",
+      "kanjiHoondok": "마",
+      "kanjiHoondokHiragana": "ま",
+      "kanjiUndok": "신",
+      "kanjiUndokHiragana": "シン",
+      "exampleWord": "真実 (しんじつ : 진실)"
+    },
+    {
+      "kanjiWord": "深",
+      "kanjiHoonUn": "깊을 심",
+      "kanjiMean": "깊다",
+      "kanjiHoondok": "후카이 / 후카마루 / 후카메루",
+      "kanjiHoondokHiragana": "ふかい、ふかまる、ふかめる",
+      "kanjiUndok": "신",
+      "kanjiUndokHiragana": "シン",
+      "exampleWord": "深夜 (しんや : 심야)"
+    },
+    {
+      "kanjiWord": "進",
+      "kanjiHoonUn": "나아갈 진",
+      "kanjiMean": "나아가다",
+      "kanjiHoondok": "스스무 / 스스메루",
+      "kanjiHoondokHiragana": "すすむ、すすめる",
+      "kanjiUndok": "신",
+      "kanjiUndokHiragana": "シン",
+      "exampleWord": "進歩 (しんぽ : 진보)"
+    },
+    {
+      "kanjiWord": "世",
+      "kanjiHoonUn": "인간 세",
+      "kanjiMean": "세상",
+      "kanjiHoondok": "요",
+      "kanjiHoondokHiragana": "よ",
+      "kanjiUndok": "세 / 세이",
+      "kanjiUndokHiragana": "セ、セイ",
+      "exampleWord": "世界 (せかい : 세계)"
+    },
+    {
+      "kanjiWord": "整",
+      "kanjiHoonUn": "가지런할 정",
+      "kanjiMean": "정돈하다",
+      "kanjiHoondok": "토토노에루 / 토토노우",
+      "kanjiHoondokHiragana": "ととのえる、ととのう",
+      "kanjiUndok": "세이",
+      "kanjiUndokHiragana": "セイ",
+      "exampleWord": "整理 (せいり : 정리)"
+    },
+    {
+      "kanjiWord": "昔",
+      "kanjiHoonUn": "옛 석",
+      "kanjiMean": "옛날",
+      "kanjiHoondok": "무카시",
+      "kanjiHoondokHiragana": "むかし",
+      "kanjiUndok": "세키 / 샤쿠",
+      "kanjiUndokHiragana": "セキ、シャク",
+      "exampleWord": "昔話 (むかしばなし : 옛날이야기)"
+    },
+    {
+      "kanjiWord": "全",
+      "kanjiHoonUn": "온전할 전",
+      "kanjiMean": "전부, 모든",
+      "kanjiHoondok": "마ㅅ타쿠",
+      "kanjiHoondokHiragana": "まったく",
+      "kanjiUndok": "젠",
+      "kanjiUndokHiragana": "ゼン",
+      "exampleWord": "全部 (ぜんぶ : 전부)"
+    },
+    {
+      "kanjiWord": "相",
+      "kanjiHoonUn": "서로 상",
+      "kanjiMean": "서로",
+      "kanjiHoondok": "아이",
+      "kanjiHoondokHiragana": "あい",
+      "kanjiUndok": "소우 / 쇼우",
+      "kanjiUndokHiragana": "ソウ、ショウ",
+      "exampleWord": "相談 (そうだん : 상담)"
+    },
+    {
+      "kanjiWord": "送",
+      "kanjiHoonUn": "보낼 송",
+      "kanjiMean": "보내다",
+      "kanjiHoondok": "오쿠루",
+      "kanjiHoondokHiragana": "おくる",
+      "kanjiUndok": "소우",
+      "kanjiUndokHiragana": "ソウ",
+      "exampleWord": "放送 (ほうそう : 방송)"
+    },
+    {
+      "kanjiWord": "想",
+      "kanjiHoonUn": "생각 상",
+      "kanjiMean": "생각하다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "소우 / 소",
+      "kanjiUndokHiragana": "ソウ、ソ",
+      "exampleWord": "想像 (そうぞう : 상상)"
+    },
+    {
+      "kanjiWord": "息",
+      "kanjiHoonUn": "숨 쉴 식",
+      "kanjiMean": "숨",
+      "kanjiHoondok": "이키",
+      "kanjiHoondokHiragana": "いき",
+      "kanjiUndok": "소쿠",
+      "kanjiUndokHiragana": "ソク",
+      "exampleWord": "休息 (きゅうそく : 휴식)"
+    },
+    {
+      "kanjiWord": "速",
+      "kanjiHoonUn": "빠를 속",
+      "kanjiMean": "빠르다",
+      "kanjiHoondok": "하야이 / 하야메루",
+      "kanjiHoondokHiragana": "はやい、はやめる",
+      "kanjiUndok": "소쿠",
+      "kanjiUndokHiragana": "ソク",
+      "exampleWord": "速度 (そくど : 속도)"
+    },
+    {
+      "kanjiWord": "族",
+      "kanjiHoonUn": "겨레 족",
+      "kanjiMean": "겨레, 무리",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "조쿠",
+      "kanjiUndokHiragana": "ゾク",
+      "exampleWord": "家族 (かぞく : 가족)"
+    },
+    {
+      "kanjiWord": "他",
+      "kanjiHoonUn": "다를 타",
+      "kanjiMean": "다르다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "타",
+      "kanjiUndokHiragana": "タ",
+      "exampleWord": "他人 (たにん : 타인)"
+    },
+    {
+      "kanjiWord": "打",
+      "kanjiHoonUn": "칠 타",
+      "kanjiMean": "치다, 때리다",
+      "kanjiHoondok": "우츠",
+      "kanjiHoondokHiragana": "うつ",
+      "kanjiUndok": "다",
+      "kanjiUndokHiragana": "ダ",
+      "exampleWord": "打者 (だしゃ : 타자)"
+    },
+    {
+      "kanjiWord": "対",
+      "kanjiHoonUn": "대할 대",
+      "kanjiMean": "대하다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "타이 / 츠이",
+      "kanjiUndokHiragana": "タイ、ツイ",
+      "exampleWord": "反対 (はんたい : 반대)"
+    },
+    {
+      "kanjiWord": "待",
+      "kanjiHoonUn": "기다릴 대",
+      "kanjiMean": "기다리다",
+      "kanjiHoondok": "마츠",
+      "kanjiHoondokHiragana": "まつ",
+      "kanjiUndok": "타이",
+      "kanjiUndokHiragana": "タイ",
+      "exampleWord": "招待 (しょうたい : 초대)"
+    },
+    {
+      "kanjiWord": "代",
+      "kanjiHoonUn": "대신할 대",
+      "kanjiMean": "대신하다",
+      "kanjiHoondok": "카와루 / 카에루",
+      "kanjiHoondokHiragana": "かわる、かえる",
+      "kanjiUndok": "다이 / 타이",
+      "kanjiUndokHiragana": "ダイ、タイ",
+      "exampleWord": "代表 (だいひょう : 대표)"
+    },
+    {
+      "kanjiWord": "第",
+      "kanjiHoonUn": "차례 제",
+      "kanjiMean": "순서",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "다이",
+      "kanjiUndokHiragana": "ダイ",
+      "exampleWord": "第一 (だいいち : 제일/가장)"
+    },
+    {
+      "kanjiWord": "題",
+      "kanjiHoonUn": "제목 제",
+      "kanjiMean": "제목, 문제",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "다이",
+      "kanjiUndokHiragana": "ダイ",
+      "exampleWord": "問題 (もんだい : 문제)"
+    },
+    {
+      "kanjiWord": "炭",
+      "kanjiHoonUn": "숯 탄",
+      "kanjiMean": "숯",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "탄",
+      "kanjiUndokHiragana": "タン",
+      "exampleWord": "石炭 (せきたん : 석탄)"
+    },
+    {
+      "kanjiWord": "短",
+      "kanjiHoonUn": "짧을 단",
+      "kanjiMean": "짧다",
+      "kanjiHoondok": "미지카이",
+      "kanjiHoondokHiragana": "みじかい",
+      "kanjiUndok": "탄",
+      "kanjiUndokHiragana": "タン",
+      "exampleWord": "短所 (たんしょ : 단점)"
+    },
+    {
+      "kanjiWord": "談",
+      "kanjiHoonUn": "말씀 담",
+      "kanjiMean": "이야기하다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "단",
+      "kanjiUndokHiragana": "ダン",
+      "exampleWord": "会談 (かいだん : 회담)"
+    },
+    {
+      "kanjiWord": "着",
+      "kanjiHoonUn": "붙을 착",
+      "kanjiMean": "입다, 도착하다",
+      "kanjiHoondok": "키루 / 키세루 / 츠쿠 / 츠케루",
+      "kanjiHoondokHiragana": "きる、きせる、つく、つける",
+      "kanjiUndok": "차쿠 / 쟈쿠",
+      "kanjiUndokHiragana": "チャク、ジャク",
+      "exampleWord": "到着 (とうちゃく : 도착)"
+    },
+    {
+      "kanjiWord": "注",
+      "kanjiHoonUn": "물 댈 주",
+      "kanjiMean": "붓다, 주의하다",
+      "kanjiHoondok": "소소구",
+      "kanjiHoondokHiragana": "そそぐ",
+      "kanjiUndok": "츄우",
+      "kanjiUndokHiragana": "チュウ",
+      "exampleWord": "注意 (ちゅうい : 주의)"
+    },
+    {
+      "kanjiWord": "柱",
+      "kanjiHoonUn": "기둥 주",
+      "kanjiMean": "기둥",
+      "kanjiHoondok": "하시라",
+      "kanjiHoondokHiragana": "はしら",
+      "kanjiUndok": "츄우",
+      "kanjiUndokHiragana": "チュウ",
+      "exampleWord": "電柱 (でんちゅう : 전봇대)"
+    },
+    {
+      "kanjiWord": "丁",
+      "kanjiHoonUn": "고무래 정",
+      "kanjiMean": "거리 단위",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "쵸우 / 테이",
+      "kanjiUndokHiragana": "チョウ、テイ",
+      "exampleWord": "丁寧 (ていねい : 정중함)"
+    },
+    {
+      "kanjiWord": "帳",
+      "kanjiHoonUn": "장막 장",
+      "kanjiMean": "장부",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "쵸우",
+      "kanjiUndokHiragana": "チョウ",
+      "exampleWord": "手帳 (てちょう : 수첩)"
+    },
+    {
+      "kanjiWord": "調",
+      "kanjiHoonUn": "고를 조",
+      "kanjiMean": "조사하다",
+      "kanjiHoondok": "시라베루",
+      "kanjiHoondokHiragana": "しらべる",
+      "kanjiUndok": "쵸우",
+      "kanjiUndokHiragana": "チョウ",
+      "exampleWord": "調査 (ちょうさ : 조사)"
+    },
+    {
+      "kanjiWord": "追",
+      "kanjiHoonUn": "쫓을 추",
+      "kanjiMean": "쫓다",
+      "kanjiHoondok": "오우",
+      "kanjiHoondokHiragana": "おう",
+      "kanjiUndok": "츠이",
+      "kanjiUndokHiragana": "ツイ",
+      "exampleWord": "追加 (ついか : 추가)"
+    },
+    {
+      "kanjiWord": "定",
+      "kanjiHoonUn": "정할 정",
+      "kanjiMean": "정하다",
+      "kanjiHoondok": "사다메루 / 사다마루",
+      "kanjiHoondokHiragana": "さだめる、さだまる",
+      "kanjiUndok": "테이 / 죠우",
+      "kanjiUndokHiragana": "テイ、ジョウ",
+      "exampleWord": "定食 (ていしょく : 정식)"
+    },
+    {
+      "kanjiWord": "庭",
+      "kanjiHoonUn": "뜰 정",
+      "kanjiMean": "뜰, 정원",
+      "kanjiHoondok": "니와",
+      "kanjiHoondokHiragana": "にわ",
+      "kanjiUndok": "테이",
+      "kanjiUndokHiragana": "テイ",
+      "exampleWord": "家庭 (かてい : 가정)"
+    },
+    {
+      "kanjiWord": "笛",
+      "kanjiHoonUn": "피리 적",
+      "kanjiMean": "피리",
+      "kanjiHoondok": "후에",
+      "kanjiHoondokHiragana": "ふえ",
+      "kanjiUndok": "테키",
+      "kanjiUndokHiragana": "テキ",
+      "exampleWord": "口笛 (くちぶえ : 휘파람)"
+    },
+    {
+      "kanjiWord": "鉄",
+      "kanjiHoonUn": "쇠 철",
+      "kanjiMean": "철",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "테츠",
+      "kanjiUndokHiragana": "テツ",
+      "exampleWord": "地下鉄 (ちかてつ : 지하철)"
+    },
+    {
+      "kanjiWord": "転",
+      "kanjiHoonUn": "구를 전",
+      "kanjiMean": "구르다",
+      "kanjiHoondok": "코로부 / 코로가루 / 코로게루 / 코로가스",
+      "kanjiHoondokHiragana": "ころぶ、ころがる、ころげる、ころがす",
+      "kanjiUndok": "텐",
+      "kanjiUndokHiragana": "テン",
+      "exampleWord": "運転 (うんてん : 운전)"
+    },
+    {
+      "kanjiWord": "都",
+      "kanjiHoonUn": "도읍 도",
+      "kanjiMean": "도시",
+      "kanjiHoondok": "미야코",
+      "kanjiHoondokHiragana": "みやこ",
+      "kanjiUndok": "토 / 츠",
+      "kanjiUndokHiragana": "ト、ツ",
+      "exampleWord": "都市 (とし : 도시)"
+    },
+    {
+      "kanjiWord": "度",
+      "kanjiHoonUn": "법도 도",
+      "kanjiMean": "정도, 횟수",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "도 / 토 / 타쿠",
+      "kanjiUndokHiragana": "ド、ト、タク",
+      "exampleWord": "温度 (おんど : 온도)"
+    },
+    {
+      "kanjiWord": "投",
+      "kanjiHoonUn": "던질 투",
+      "kanjiMean": "던지다",
+      "kanjiHoondok": "나게루",
+      "kanjiHoondokHiragana": "なげる",
+      "kanjiUndok": "토우",
+      "kanjiUndokHiragana": "トウ",
+      "exampleWord": "投手 (とうしゅ : 투수)"
+    },
+    {
+      "kanjiWord": "豆",
+      "kanjiHoonUn": "콩 두",
+      "kanjiMean": "콩",
+      "kanjiHoondok": "마메",
+      "kanjiHoondokHiragana": "まめ",
+      "kanjiUndok": "토우 / 즈",
+      "kanjiUndokHiragana": "トウ、ズ",
+      "exampleWord": "大豆 (だいず : 대두)"
+    },
+    {
+      "kanjiWord": "島",
+      "kanjiHoonUn": "섬 도",
+      "kanjiMean": "섬",
+      "kanjiHoondok": "시마",
+      "kanjiHoondokHiragana": "しま",
+      "kanjiUndok": "토우",
+      "kanjiUndokHiragana": "トウ",
+      "exampleWord": "半島 (はんとう : 반도)"
+    },
+    {
+      "kanjiWord": "湯",
+      "kanjiHoonUn": "끓을 탕",
+      "kanjiMean": "뜨거운 물",
+      "kanjiHoondok": "유",
+      "kanjiHoondokHiragana": "ゆ",
+      "kanjiUndok": "토우",
+      "kanjiUndokHiragana": "トウ",
+      "exampleWord": "熱湯 (ねっとう : 열탕)"
+    },
+    {
+      "kanjiWord": "登",
+      "kanjiHoonUn": "오를 등",
+      "kanjiMean": "오르다",
+      "kanjiHoondok": "노보루",
+      "kanjiHoondokHiragana": "のぼる",
+      "kanjiUndok": "토우 / 토",
+      "kanjiUndokHiragana": "トウ、ト",
+      "exampleWord": "登山 (とざん : 등산)"
+    },
+    {
+      "kanjiWord": "等",
+      "kanjiHoonUn": "무리 등",
+      "kanjiMean": "같다, 등급",
+      "kanjiHoondok": "히토시이",
+      "kanjiHoondokHiragana": "ひとしい",
+      "kanjiUndok": "토우",
+      "kanjiUndokHiragana": "トウ",
+      "exampleWord": "平等 (びょうどう : 평등)"
+    },
+    {
+      "kanjiWord": "動",
+      "kanjiHoonUn": "움직일 동",
+      "kanjiMean": "움직이다",
+      "kanjiHoondok": "우고카스 / 우고쿠",
+      "kanjiHoondokHiragana": "うごかす、うごく",
+      "kanjiUndok": "도우",
+      "kanjiUndokHiragana": "ドウ",
+      "exampleWord": "動物 (どうぶつ : 동물)"
+    },
+    {
+      "kanjiWord": "童",
+      "kanjiHoonUn": "아이 동",
+      "kanjiMean": "아이",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "도우",
+      "kanjiUndokHiragana": "ドウ",
+      "exampleWord": "童話 (どうわ : 동화)"
+    },
+    {
+      "kanjiWord": "農",
+      "kanjiHoonUn": "농사 농",
+      "kanjiMean": "농사",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "노우",
+      "kanjiUndokHiragana": "ノウ",
+      "exampleWord": "農業 (のうぎょう : 농업)"
+    },
+    {
+      "kanjiWord": "波",
+      "kanjiHoonUn": "물결 파",
+      "kanjiMean": "파도",
+      "kanjiHoondok": "나미",
+      "kanjiHoondokHiragana": "なみ",
+      "kanjiUndok": "하",
+      "kanjiUndokHiragana": "ハ",
+      "exampleWord": "波長 (はちょう : 파장)"
+    },
+    {
+      "kanjiWord": "配",
+      "kanjiHoonUn": "나눌 배",
+      "kanjiMean": "나누다",
+      "kanjiHoondok": "쿠바루",
+      "kanjiHoondokHiragana": "くばる",
+      "kanjiUndok": "하이",
+      "kanjiUndokHiragana": "ハイ",
+      "exampleWord": "心配 (しんぱい : 걱정)"
+    },
+    {
+      "kanjiWord": "倍",
+      "kanjiHoonUn": "곱 배",
+      "kanjiMean": "곱, 갑절",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "바이",
+      "kanjiUndokHiragana": "バイ",
+      "exampleWord": "二倍 (にばい : 2배)"
+    },
+    {
+      "kanjiWord": "箱",
+      "kanjiHoonUn": "상자 상",
+      "kanjiMean": "상자",
+      "kanjiHoondok": "하코",
+      "kanjiHoondokHiragana": "はこ",
+      "kanjiUndok": "하코",
+      "kanjiUndokHiragana": "ハコ",
+      "exampleWord": "ゴミ箱 (ごみばこ : 쓰레기통)"
+    },
+    {
+      "kanjiWord": "畑",
+      "kanjiHoonUn": "밭 전",
+      "kanjiMean": "밭",
+      "kanjiHoondok": "하타케 / 하타",
+      "kanjiHoondokHiragana": "はたけ、はた",
+      "kanjiUndok": "",
+      "kanjiUndokHiragana": "",
+      "exampleWord": "畑仕事 (はたけしごと : 밭일)"
+    },
+    {
+      "kanjiWord": "発",
+      "kanjiHoonUn": "필 발",
+      "kanjiMean": "피다, 출발",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "하츠 / 호츠",
+      "kanjiUndokHiragana": "ハツ、ホツ",
+      "exampleWord": "出発 (しゅっぱつ : 출발)"
+    },
+    {
+      "kanjiWord": "反",
+      "kanjiHoonUn": "돌이킬 반",
+      "kanjiMean": "반대하다",
+      "kanjiHoondok": "소라스 / 소루",
+      "kanjiHoondokHiragana": "そらす、そる",
+      "kanjiUndok": "한 / 혼 / 탄",
+      "kanjiUndokHiragana": "ハン、ホン、タン",
+      "exampleWord": "反対 (はんたい : 반대)"
+    },
+    {
+      "kanjiWord": "坂",
+      "kanjiHoonUn": "언덕 판",
+      "kanjiMean": "언덕",
+      "kanjiHoondok": "사카",
+      "kanjiHoondokHiragana": "さか",
+      "kanjiUndok": "한",
+      "kanjiUndokHiragana": "ハン",
+      "exampleWord": "坂道 (さかみち : 언덕길)"
+    },
+    {
+      "kanjiWord": "板",
+      "kanjiHoonUn": "널 판",
+      "kanjiMean": "판자",
+      "kanjiHoondok": "이타",
+      "kanjiHoondokHiragana": "いた",
+      "kanjiUndok": "한 / 반",
+      "kanjiUndokHiragana": "ハン、バン",
+      "exampleWord": "黒板 (こくばん : 칠판)"
+    },
+    {
+      "kanjiWord": "皮",
+      "kanjiHoonUn": "가죽 피",
+      "kanjiMean": "가죽, 껍질",
+      "kanjiHoondok": "카와",
+      "kanjiHoondokHiragana": "かわ",
+      "kanjiUndok": "히",
+      "kanjiUndokHiragana": "ヒ",
+      "exampleWord": "皮肉 (ひにく : 비꼬음/빈정댐)"
+    },
+    {
+      "kanjiWord": "悲",
+      "kanjiHoonUn": "슬플 비",
+      "kanjiMean": "슬프다",
+      "kanjiHoondok": "카나시이 / 카나시무",
+      "kanjiHoondokHiragana": "かなしい、かなしむ",
+      "kanjiUndok": "히",
+      "kanjiUndokHiragana": "ヒ",
+      "exampleWord": "悲劇 (ひげき : 비극)"
+    },
+    {
+      "kanjiWord": "美",
+      "kanjiHoonUn": "아름다울 미",
+      "kanjiMean": "아름답다",
+      "kanjiHoondok": "우츠쿠시이",
+      "kanjiHoondokHiragana": "うつくしい",
+      "kanjiUndok": "비 / 미",
+      "kanjiUndokHiragana": "ビ、ミ",
+      "exampleWord": "美人 (びじん : 미인)"
+    },
+    {
+      "kanjiWord": "鼻",
+      "kanjiHoonUn": "코 비",
+      "kanjiMean": "코",
+      "kanjiHoondok": "하나",
+      "kanjiHoondokHiragana": "はな",
+      "kanjiUndok": "비",
+      "kanjiUndokHiragana": "ビ",
+      "exampleWord": "耳鼻科 (じびか : 이비인후과)"
+    },
+    {
+      "kanjiWord": "筆",
+      "kanjiHoonUn": "붓 필",
+      "kanjiMean": "붓",
+      "kanjiHoondok": "후데",
+      "kanjiHoondokHiragana": "ふで",
+      "kanjiUndok": "히츠",
+      "kanjiUndokHiragana": "ヒツ",
+      "exampleWord": "筆記 (ひっき : 필기)"
+    },
+    {
+      "kanjiWord": "氷",
+      "kanjiHoonUn": "얼음 빙",
+      "kanjiMean": "얼음",
+      "kanjiHoondok": "코오리 / 히",
+      "kanjiHoondokHiragana": "こおり、ひ",
+      "kanjiUndok": "효우",
+      "kanjiUndokHiragana": "ヒョウ",
+      "exampleWord": "氷山 (ひょうざん : 빙산)"
+    },
+    {
+      "kanjiWord": "表",
+      "kanjiHoonUn": "겉 표",
+      "kanjiMean": "겉, 나타내다",
+      "kanjiHoondok": "오모테 / 아라와스 / 아라와레루",
+      "kanjiHoondokHiragana": "おもて、あらわす、あらわれる",
+      "kanjiUndok": "효우",
+      "kanjiUndokHiragana": "ヒョウ",
+      "exampleWord": "発表 (はっぴょう : 발표)"
+    },
+    {
+      "kanjiWord": "秒",
+      "kanjiHoonUn": "초 초",
+      "kanjiMean": "초(시간)",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "뵤우",
+      "kanjiUndokHiragana": "ビョウ",
+      "exampleWord": "秒針 (びょうしん : 초침)"
+    },
+    {
+      "kanjiWord": "病",
+      "kanjiHoonUn": "병 병",
+      "kanjiMean": "병",
+      "kanjiHoondok": "야마이 / 야무",
+      "kanjiHoondokHiragana": "やまい、やむ",
+      "kanjiUndok": "뵤우",
+      "kanjiUndokHiragana": "ビョウ",
+      "exampleWord": "病院 (びょういん : 병원)"
+    },
+    {
+      "kanjiWord": "品",
+      "kanjiHoonUn": "물건 품",
+      "kanjiMean": "물건",
+      "kanjiHoondok": "시나",
+      "kanjiHoondokHiragana": "しな",
+      "kanjiUndok": "힌",
+      "kanjiUndokHiragana": "ヒン",
+      "exampleWord": "品物 (しなもの : 물건)"
+    },
+    {
+      "kanjiWord": "負",
+      "kanjiHoonUn": "질 부",
+      "kanjiMean": "지다, 짐",
+      "kanjiHoondok": "마케루 / 마카스 / 오우",
+      "kanjiHoondokHiragana": "まける、まかす、おう",
+      "kanjiUndok": "후",
+      "kanjiUndokHiragana": "フ",
+      "exampleWord": "負担 (ふたん : 부담)"
+    },
+    {
+      "kanjiWord": "部",
+      "kanjiHoonUn": "떼 부",
+      "kanjiMean": "부분, 부서",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "부",
+      "kanjiUndokHiragana": "ブ",
+      "exampleWord": "部屋 (へや : 방)"
+    },
+    {
+      "kanjiWord": "服",
+      "kanjiHoonUn": "옷 복",
+      "kanjiMean": "옷",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "후쿠",
+      "kanjiUndokHiragana": "フク",
+      "exampleWord": "洋服 (ようふく : 양복)"
+    },
+    {
+      "kanjiWord": "福",
+      "kanjiHoonUn": "복 복",
+      "kanjiMean": "복, 행복",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "후쿠",
+      "kanjiUndokHiragana": "フク",
+      "exampleWord": "幸福 (こうふく : 행복)"
+    },
+    {
+      "kanjiWord": "物",
+      "kanjiHoonUn": "물건 물",
+      "kanjiMean": "물건",
+      "kanjiHoondok": "모노",
+      "kanjiHoondokHiragana": "もの",
+      "kanjiUndok": "부츠 / 모츠",
+      "kanjiUndokHiragana": "ブツ、モツ",
+      "exampleWord": "動物 (どうぶつ : 동물)"
+    },
+    {
+      "kanjiWord": "平",
+      "kanjiHoonUn": "평평할 평",
+      "kanjiMean": "평평하다",
+      "kanjiHoondok": "타이라 / 히라",
+      "kanjiHoondokHiragana": "たいら、ひら",
+      "kanjiUndok": "헤이 / 뵤우",
+      "kanjiUndokHiragana": "ヘイ、ビョウ",
+      "exampleWord": "平和 (へいわ : 평화)"
+    },
+    {
+      "kanjiWord": "返",
+      "kanjiHoonUn": "돌이킬 반",
+      "kanjiMean": "돌려주다",
+      "kanjiHoondok": "카에스 / 카에루",
+      "kanjiHoondokHiragana": "かえす、かえる",
+      "kanjiUndok": "헨",
+      "kanjiUndokHiragana": "ヘン",
+      "exampleWord": "返事 (へんじ : 답장)"
+    },
+    {
+      "kanjiWord": "勉",
+      "kanjiHoonUn": "힘쓸 면",
+      "kanjiMean": "힘쓰다",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "벤",
+      "kanjiUndokHiragana": "ベン",
+      "exampleWord": "勉強 (べんきょう : 공부)"
+    },
+    {
+      "kanjiWord": "放",
+      "kanjiHoonUn": "놓을 방",
+      "kanjiMean": "놓다",
+      "kanjiHoondok": "하나스 / 하나츠 / 하나레루",
+      "kanjiHoondokHiragana": "はなす、はなつ、はなれる",
+      "kanjiUndok": "호우",
+      "kanjiUndokHiragana": "ホウ",
+      "exampleWord": "放送 (ほうそう : 방송)"
+    },
+    {
+      "kanjiWord": "味",
+      "kanjiHoonUn": "맛 미",
+      "kanjiMean": "맛",
+      "kanjiHoondok": "아지 / 아지와우",
+      "kanjiHoondokHiragana": "あじ、あじわう",
+      "kanjiUndok": "미",
+      "kanjiUndokHiragana": "ミ",
+      "exampleWord": "趣味 (しゅみ : 취미)"
+    },
+    {
+      "kanjiWord": "命",
+      "kanjiHoonUn": "목숨 명",
+      "kanjiMean": "목숨",
+      "kanjiHoondok": "이노치",
+      "kanjiHoondokHiragana": "いのち",
+      "kanjiUndok": "메이 / 묘우",
+      "kanjiUndokHiragana": "メイ、ミョウ",
+      "exampleWord": "生命 (せいめい : 생명)"
+    },
+    {
+      "kanjiWord": "面",
+      "kanjiHoonUn": "낯 면",
+      "kanjiMean": "얼굴, 면",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "멘",
+      "kanjiUndokHiragana": "メン",
+      "exampleWord": "画面 (がめん : 화면)"
+    },
+    {
+      "kanjiWord": "問",
+      "kanjiHoonUn": "물을 문",
+      "kanjiMean": "묻다, 문제",
+      "kanjiHoondok": "토우 / 토이",
+      "kanjiHoondokHiragana": "とう、とい",
+      "kanjiUndok": "몬",
+      "kanjiUndokHiragana": "モン",
+      "exampleWord": "質問 (しつもん : 질문)"
+    },
+    {
+      "kanjiWord": "役",
+      "kanjiHoonUn": "부릴 역",
+      "kanjiMean": "역할",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "야쿠 / 에키",
+      "kanjiUndokHiragana": "ヤク、エキ",
+      "exampleWord": "役割 (やくわり : 역할)"
+    },
+    {
+      "kanjiWord": "薬",
+      "kanjiHoonUn": "약 약",
+      "kanjiMean": "약",
+      "kanjiHoondok": "쿠스리",
+      "kanjiHoondokHiragana": "くすり",
+      "kanjiUndok": "야쿠",
+      "kanjiUndokHiragana": "ヤク",
+      "exampleWord": "薬局 (やっきょく : 약국)"
+    },
+    {
+      "kanjiWord": "由",
+      "kanjiHoonUn": "말미암을 유",
+      "kanjiMean": "이유",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "유 / 유우 / 유이",
+      "kanjiUndokHiragana": "ユ、ユウ、ユイ",
+      "exampleWord": "自由 (じゆう : 자유)"
+    },
+    {
+      "kanjiWord": "油",
+      "kanjiHoonUn": "기름 유",
+      "kanjiMean": "기름",
+      "kanjiHoondok": "아부라",
+      "kanjiHoondokHiragana": "あぶら",
+      "kanjiUndok": "유",
+      "kanjiUndokHiragana": "ユ",
+      "exampleWord": "石油 (せきゆ : 석유)"
+    },
+    {
+      "kanjiWord": "有",
+      "kanjiHoonUn": "있을 유",
+      "kanjiMean": "있다",
+      "kanjiHoondok": "아루",
+      "kanjiHoondokHiragana": "ある",
+      "kanjiUndok": "유우 / 우",
+      "kanjiUndokHiragana": "ユウ、ウ",
+      "exampleWord": "有名 (ゆうめい : 유명)"
+    },
+    {
+      "kanjiWord": "遊",
+      "kanjiHoonUn": "놀 유",
+      "kanjiMean": "놀다",
+      "kanjiHoondok": "아소부 / 아소비",
+      "kanjiHoondokHiragana": "あそぶ、あそび",
+      "kanjiUndok": "유우",
+      "kanjiUndokHiragana": "ユウ",
+      "exampleWord": "遊園地 (ゆうえんち : 유원지)"
+    },
+    {
+      "kanjiWord": "予",
+      "kanjiHoonUn": "미리 예",
+      "kanjiMean": "미리",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "요",
+      "kanjiUndokHiragana": "ヨ",
+      "exampleWord": "予定 (よてい : 예정)"
+    },
+    {
+      "kanjiWord": "羊",
+      "kanjiHoonUn": "양 양",
+      "kanjiMean": "양",
+      "kanjiHoondok": "히츠지",
+      "kanjiHoondokHiragana": "ひつじ",
+      "kanjiUndok": "요우",
+      "kanjiUndokHiragana": "ヨウ",
+      "exampleWord": "羊毛 (ようもう : 양모)"
+    },
+    {
+      "kanjiWord": "洋",
+      "kanjiHoonUn": "큰 바다 양",
+      "kanjiMean": "서양",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "요우",
+      "kanjiUndokHiragana": "ヨウ",
+      "exampleWord": "洋食 (ようしょく : 양식)"
+    },
+    {
+      "kanjiWord": "葉",
+      "kanjiHoonUn": "잎 엽",
+      "kanjiMean": "잎",
+      "kanjiHoondok": "하",
+      "kanjiHoondokHiragana": "は",
+      "kanjiUndok": "요우",
+      "kanjiUndokHiragana": "ヨウ",
+      "exampleWord": "紅葉 (こうよう : 단풍)"
+    },
+    {
+      "kanjiWord": "陽",
+      "kanjiHoonUn": "볕 양",
+      "kanjiMean": "태양, 볕",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "요우",
+      "kanjiUndokHiragana": "ヨウ",
+      "exampleWord": "太陽 (たいよう : 태양)"
+    },
+    {
+      "kanjiWord": "様",
+      "kanjiHoonUn": "모양 양",
+      "kanjiMean": "모양, ~님",
+      "kanjiHoondok": "사마",
+      "kanjiHoondokHiragana": "さま",
+      "kanjiUndok": "요우",
+      "kanjiUndokHiragana": "ヨウ",
+      "exampleWord": "様子 (ようす : 모습/상태)"
+    },
+    {
+      "kanjiWord": "落",
+      "kanjiHoonUn": "떨어질 낙",
+      "kanjiMean": "떨어지다",
+      "kanjiHoondok": "오치루 / 오토스",
+      "kanjiHoondokHiragana": "おちる、おとす",
+      "kanjiUndok": "라쿠",
+      "kanjiUndokHiragana": "ラク",
+      "exampleWord": "落語 (らくご : 라쿠고/만담)"
+    },
+    {
+      "kanjiWord": "流",
+      "kanjiHoonUn": "흐를 류",
+      "kanjiMean": "흐르다",
+      "kanjiHoondok": "나가레루 / 나가스",
+      "kanjiHoondokHiragana": "ながれる、ながす",
+      "kanjiUndok": "류우 / 루",
+      "kanjiUndokHiragana": "リュウ、ル",
+      "exampleWord": "流行 (りゅうこう : 유행)"
+    },
+    {
+      "kanjiWord": "旅",
+      "kanjiHoonUn": "나그네 려",
+      "kanjiMean": "여행",
+      "kanjiHoondok": "타비",
+      "kanjiHoondokHiragana": "たび",
+      "kanjiUndok": "료",
+      "kanjiUndokHiragana": "リョ",
+      "exampleWord": "旅行 (りょこう : 여행)"
+    },
+    {
+      "kanjiWord": "両",
+      "kanjiHoonUn": "두 양",
+      "kanjiMean": "둘, 양쪽",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "료우",
+      "kanjiUndokHiragana": "リョウ",
+      "exampleWord": "両親 (りょうしん : 부모님)"
+    },
+    {
+      "kanjiWord": "緑",
+      "kanjiHoonUn": "푸를 녹",
+      "kanjiMean": "초록색",
+      "kanjiHoondok": "미도리",
+      "kanjiHoondokHiragana": "みどり",
+      "kanjiUndok": "료쿠 / 로쿠",
+      "kanjiUndokHiragana": "リョク、ロク",
+      "exampleWord": "緑茶 (りょくちゃ : 녹차)"
+    },
+    {
+      "kanjiWord": "礼",
+      "kanjiHoonUn": "예도 례",
+      "kanjiMean": "예절, 인사",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "레이 / 라이",
+      "kanjiUndokHiragana": "レイ、ライ",
+      "exampleWord": "お礼 (おれい : 사례/인사)"
+    },
+    {
+      "kanjiWord": "列",
+      "kanjiHoonUn": "벌일 렬",
+      "kanjiMean": "줄, 열",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "레츠",
+      "kanjiUndokHiragana": "レツ",
+      "exampleWord": "行列 (ぎょうれつ : 행렬)"
+    },
+    {
+      "kanjiWord": "練",
+      "kanjiHoonUn": "익힐 련",
+      "kanjiMean": "단련하다",
+      "kanjiHoondok": "네루",
+      "kanjiHoondokHiragana": "ねる",
+      "kanjiUndok": "렌",
+      "kanjiUndokHiragana": "レン",
+      "exampleWord": "練習 (れんしゅう : 연습)"
+    },
+    {
+      "kanjiWord": "路",
+      "kanjiHoonUn": "길 로",
+      "kanjiMean": "길",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "로",
+      "kanjiUndokHiragana": "ロ",
+      "exampleWord": "道路 (どうろ : 도로)"
+    },
+    {
+      "kanjiWord": "和",
+      "kanjiHoonUn": "화할 화",
+      "kanjiMean": "화하다, 일본",
+      "kanjiHoondok": "",
+      "kanjiHoondokHiragana": "",
+      "kanjiUndok": "와 / 오",
+      "kanjiUndokHiragana": "ワ、オ",
+      "exampleWord": "平和 (へいわ : 평화)"
+    }
+  ]
+}
