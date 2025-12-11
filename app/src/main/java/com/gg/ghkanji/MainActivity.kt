@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
             // 간단한 네비게이션 상태 관리 (실무에선 NavController 사용 권장)
             var currentScreen by remember { mutableStateOf<Screen>(Screen.Splash) }
 
-            when (currentScreen) {
+            val screen = currentScreen
+            when (screen) {
                 Screen.Splash -> {
                     SplashScreen(
                         onSplashFinished = {
@@ -61,10 +62,10 @@ class MainActivity : ComponentActivity() {
                 }
                 is Screen.LearningStage -> {
                     LearningStageScreen(
-                        grade = currentScreen.grade,
-                        totalKanjiCount = currentScreen.totalKanji,
+                        grade = screen.grade,
+                        totalKanjiCount = screen.totalKanji,
                         onStageClick = { stage ->
-                            currentScreen = Screen.KanjiMemorization(currentScreen.grade, stage)
+                            currentScreen = Screen.KanjiMemorization(screen.grade, stage)
                         },
                         onBackClick = {
                             currentScreen = Screen.LearningGrade // 학년 선택 화면으로 돌아가기
@@ -73,10 +74,10 @@ class MainActivity : ComponentActivity() {
                 }
                 is Screen.KanjiMemorization -> {
                     KanjiMemorizationScreen(
-                        grade = currentScreen.grade,
-                        stage = currentScreen.stage,
+                        grade = screen.grade,
+                        stage = screen.stage,
                         onBackClick = {
-                            currentScreen = Screen.LearningStage(currentScreen.grade, currentScreen.stage.endIndex + 1)
+                            currentScreen = Screen.LearningStage(screen.grade, screen.stage.endIndex + 1)
                         }
                     )
                 }
