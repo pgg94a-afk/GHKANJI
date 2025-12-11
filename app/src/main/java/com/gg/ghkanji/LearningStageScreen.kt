@@ -113,6 +113,7 @@ fun LearningStageScreen(
                     val buttonRadius = 50.dp.toPx() // 버튼 반지름 (100dp / 2)
                     val buttonMargin = 30.dp.toPx() // 버튼의 좌우 마진
                     val verticalSpacing = 200.dp.toPx() // 버튼 간 세로 간격
+                    val pathGap = 15.dp.toPx() // 경로와 버튼 사이의 간격
 
                     stages.forEachIndexed { index, _ ->
                         val isLeftAlign = index % 2 == 0
@@ -137,8 +138,8 @@ fun LearningStageScreen(
                             val nextCenterY = (index + 1) * verticalSpacing + 30.dp.toPx() + buttonRadius
 
                             val curvePath = Path().apply {
-                                // 현재 버튼의 하단 가장자리에서 시작
-                                moveTo(currentCenterX, currentCenterY + buttonRadius)
+                                // 현재 버튼에서 약간 떨어진 곳에서 시작
+                                moveTo(currentCenterX, currentCenterY + buttonRadius + pathGap)
 
                                 // 부드러운 S자 곡선 생성
                                 val controlPoint1Y = currentCenterY + verticalSpacing * 0.35f
@@ -147,7 +148,7 @@ fun LearningStageScreen(
                                 cubicTo(
                                     currentCenterX, controlPoint1Y,
                                     nextCenterX, controlPoint2Y,
-                                    nextCenterX, nextCenterY - buttonRadius // 다음 버튼의 상단 가장자리
+                                    nextCenterX, nextCenterY - buttonRadius - pathGap // 다음 버튼에서 약간 떨어진 곳에서 종료
                                 )
                             }
 
@@ -200,73 +201,54 @@ fun StageButton(
     showCharacter: Boolean = false,
     onClick: () -> Unit
 ) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.width(120.dp)
+    Box(
+        modifier = Modifier.size(100.dp)
     ) {
+        // 입체감을 위한 그림자 레이어 (아래쪽)
         Box(
-            modifier = Modifier.size(100.dp)
-        ) {
-            // 입체감을 위한 그림자 레이어 (아래쪽)
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .offset(y = 4.dp)
-                    .clip(CircleShape)
-                    .background(
-                        color = if (showCharacter)
-                            Color(0xFF9F5A5A) // 더 어두운 빨강
-                        else
-                            Color(0xFFCA8B5F) // 더 어두운 오렌지
-                    )
-            )
+            modifier = Modifier
+                .size(100.dp)
+                .offset(y = 4.dp)
+                .clip(CircleShape)
+                .background(
+                    color = if (showCharacter)
+                        Color(0xFF9F5A5A) // 더 어두운 빨강
+                    else
+                        Color(0xFFCA8B5F) // 더 어두운 오렌지
+                )
+        )
 
-            // 메인 버튼
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(CircleShape)
-                    .background(
-                        color = if (showCharacter)
-                            Color(0xFFC97474) // 연한 빨강
-                        else
-                            Color(0xFFE8A87C) // 연한 오렌지
-                    )
-                    .clickable(onClick = onClick),
-                contentAlignment = Alignment.Center
-            ) {
-                if (showCharacter) {
-                    // 곰 캐릭터
-                    Text(
-                        text = "🐻",
-                        fontSize = 48.sp
-                    )
-                } else {
-                    // 스테이지 라벨
-                    Text(
-                        text = stage.label,
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF5A4A42),
-                        textAlign = TextAlign.Center
-                    )
-                }
+        // 메인 버튼
+        Box(
+            modifier = Modifier
+                .size(100.dp)
+                .clip(CircleShape)
+                .background(
+                    color = if (showCharacter)
+                        Color(0xFFC97474) // 연한 빨강
+                    else
+                        Color(0xFFE8A87C) // 연한 오렌지
+                )
+                .clickable(onClick = onClick),
+            contentAlignment = Alignment.Center
+        ) {
+            if (showCharacter) {
+                // 곰 캐릭터
+                Text(
+                    text = "🐻",
+                    fontSize = 48.sp
+                )
+            } else {
+                // 스테이지 라벨
+                Text(
+                    text = stage.label,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF5A4A42),
+                    textAlign = TextAlign.Center
+                )
             }
         }
-
-        // 한자 범위 표시
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = "${stage.startIndex + 1}~${stage.endIndex + 1}",
-            fontSize = 14.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color(0xFF8B6F5C),
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .clip(RoundedCornerShape(12.dp))
-                .background(Color(0xFFFFE8D1))
-                .padding(horizontal = 12.dp, vertical = 4.dp)
-        )
     }
 }
 
