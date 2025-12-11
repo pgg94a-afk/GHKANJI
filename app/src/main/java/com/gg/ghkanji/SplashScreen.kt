@@ -10,6 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
+import com.gg.ghkanji.data.KanjiRepository
 import kotlinx.coroutines.delay
 
 @Composable
@@ -49,9 +50,13 @@ fun SplashScreen(
         )
     }
 
-    // 타이머 설정: 애니메이션 길이(약 4.5초) + 통통 튀는 거 감상할 시간(약 1.5초)
+    // 데이터 로딩 및 타이머 설정 (2-3초)
     LaunchedEffect(Unit) {
-        delay(6000) // 6초 뒤에 넘어감
+        // 데이터 로딩 (JSON 파싱)
+        KanjiRepository.loadKanjiData()
+
+        // 최소 3초는 스플래시 화면 표시 (데이터 로딩이 빨리 끝나도)
+        delay(3000)
         onSplashFinished()
     }
 }

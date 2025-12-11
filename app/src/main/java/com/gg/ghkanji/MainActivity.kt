@@ -30,8 +30,15 @@ class MainActivity : ComponentActivity() {
                     }
                 )
             } else {
-                // 여기에 메인 화면 Composable 넣기
-
+                // 메인 화면
+                MainScreen(
+                    onStudyClick = {
+                        // TODO: 한자 학습 화면으로 이동
+                    },
+                    onTestClick = {
+                        // TODO: 한자 시험 화면으로 이동
+                    }
+                )
             }
         }
     }
