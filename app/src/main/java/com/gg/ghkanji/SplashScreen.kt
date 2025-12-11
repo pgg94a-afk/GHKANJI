@@ -7,16 +7,22 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
-import com.gg.ghkanji.data.KanjiRepository
-import kotlinx.coroutines.delay
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gg.ghkanji.viewmodel.SplashViewModel
 
 @Composable
 fun SplashScreen(
-    onSplashFinished: () -> Unit // 애니메이션 끝난 후 실행할 함수 (네비게이션 등)
+    onSplashFinished: () -> Unit, // 애니메이션 끝난 후 실행할 함수 (네비게이션 등)
+    viewModel: SplashViewModel = viewModel()
 ) {
+    // ViewModel의 UI 상태 구독
+    val uiState by viewModel.uiState.collectAsState()
+
     // 배경색: HTML의 배경색(#FFFDF5)과 일치시켜서 로딩 시 흰색 깜빡임 방지
     val backgroundColor = Color(0xFFFFFDF5)
 
@@ -50,13 +56,14 @@ fun SplashScreen(
         )
     }
 
-    // 데이터 로딩 및 타이머 설정 (2-3초)
-    LaunchedEffect(Unit) {
-        // 데이터 로딩 (JSON 파싱)
-        KanjiRepository.loadKanjiData()
-
-        // 최소 3초는 스플래시 화면 표시 (데이터 로딩이 빨리 끝나도)
-        delay(3000)
-        onSplashFinished()
+    // UI 상태 변화에 따라 네비게이션 처리
+    LaunchedEffect(uiState.shouldNavigateToMain) {
+        if (uiState.shouldNavigateToMain) {
+            onSplashFinished()
+            viewModel.onNavigationComplete()
+        }
     }
+
+    // TODO: 에러 처리 - 필요시 에러 메시지 표시
+    // if (uiState.error != null) { ... }
 }
