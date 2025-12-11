@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gg.ghkanji.ui.theme.PretendardFontFamily
 
 @Composable
 fun MainScreen(
@@ -44,6 +45,7 @@ fun MainScreen(
                 text = "우마우마",
                 fontSize = 48.sp,
                 fontWeight = FontWeight.Bold,
+                fontFamily = PretendardFontFamily,
                 color = Color(0xFF8B6F5C),
                 textAlign = TextAlign.Center
             )
@@ -84,6 +86,7 @@ fun MainScreen(
                     text = "한자 학습",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
+                    fontFamily = PretendardFontFamily,
                     color = Color.White
                 )
             }
@@ -105,6 +108,7 @@ fun MainScreen(
                     text = "한자 시험",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
+                    fontFamily = PretendardFontFamily,
                     color = Color(0xFFE97878)
                 )
             }
