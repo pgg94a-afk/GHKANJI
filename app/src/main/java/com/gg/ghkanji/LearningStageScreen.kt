@@ -113,7 +113,6 @@ fun LearningStageScreen(
                     val buttonRadius = 50.dp.toPx() // 버튼 반지름 (100dp / 2)
                     val buttonMargin = 30.dp.toPx() // 버튼의 좌우 마진
                     val verticalSpacing = 200.dp.toPx() // 버튼 간 세로 간격
-                    val pathGap = 15.dp.toPx() // 경로와 버튼 사이의 간격
 
                     stages.forEachIndexed { index, _ ->
                         val isLeftAlign = index % 2 == 0
@@ -138,8 +137,8 @@ fun LearningStageScreen(
                             val nextCenterY = (index + 1) * verticalSpacing + 30.dp.toPx() + buttonRadius
 
                             val curvePath = Path().apply {
-                                // 현재 버튼에서 약간 떨어진 곳에서 시작
-                                moveTo(currentCenterX, currentCenterY + buttonRadius + pathGap)
+                                // 현재 버튼의 하단 가장자리에서 시작
+                                moveTo(currentCenterX, currentCenterY + buttonRadius)
 
                                 // 부드러운 S자 곡선 생성
                                 val controlPoint1Y = currentCenterY + verticalSpacing * 0.35f
@@ -148,7 +147,7 @@ fun LearningStageScreen(
                                 cubicTo(
                                     currentCenterX, controlPoint1Y,
                                     nextCenterX, controlPoint2Y,
-                                    nextCenterX, nextCenterY - buttonRadius - pathGap // 다음 버튼에서 약간 떨어진 곳에서 종료
+                                    nextCenterX, nextCenterY - buttonRadius // 다음 버튼의 상단 가장자리에서 종료
                                 )
                             }
 
