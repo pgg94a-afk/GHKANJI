@@ -39,6 +39,10 @@ fun SplashScreen(
                     settings.javaScriptEnabled = true // 애니메이션 실행을 위해 필수
                     settings.domStorageEnabled = true
 
+                    // viewport 설정 - 화면 크기에 맞게 컨텐츠 렌더링
+                    settings.useWideViewPort = true
+                    settings.loadWithOverviewMode = true
+
                     // 2. UI 깔끔하게 (스크롤바 제거, 배경 투명)
                     isVerticalScrollBarEnabled = false
                     isHorizontalScrollBarEnabled = false
