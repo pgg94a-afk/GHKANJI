@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.foundation.layout.systemBarsPadding
 import com.gg.ghkanji.viewmodel.SplashViewModel
 
 @Composable
@@ -30,6 +31,7 @@ fun SplashScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(backgroundColor)
+            .systemBarsPadding()
     ) {
         AndroidView(
             modifier = Modifier.fillMaxSize(),
@@ -40,9 +42,7 @@ fun SplashScreen(
                     settings.domStorageEnabled = true
 
                     // 뷰포트 및 스케일 설정
-                    settings.useWideViewPort = true
                     settings.loadWithOverviewMode = true
-                    setInitialScale(100)
 
                     // 줌 완전히 비활성화
                     settings.setSupportZoom(false)

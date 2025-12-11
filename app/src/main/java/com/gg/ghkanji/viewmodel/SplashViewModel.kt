@@ -43,8 +43,8 @@ class SplashViewModel : ViewModel() {
                 // JSON 데이터 파싱 및 로딩
                 KanjiRepository.loadKanjiData()
 
-                // 최소 3초는 스플래시 화면 표시
-                delay(3000)
+                // 최소 4초는 스플래시 화면 표시
+                delay(4000)
 
                 // 로딩 완료
                 _uiState.value = _uiState.value.copy(
