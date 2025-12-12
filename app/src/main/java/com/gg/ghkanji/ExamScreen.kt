@@ -29,6 +29,8 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import com.gg.ghkanji.data.ExamProgress
@@ -183,7 +185,9 @@ fun ExamScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFFFFDF5)),
+                .background(Color(0xFFFFFDF5))
+                .statusBarsPadding()
+                .navigationBarsPadding(),
             contentAlignment = Alignment.Center
         ) {
             CircularProgressIndicator(color = Color(0xFFE97878))
@@ -219,6 +223,8 @@ fun ExamScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color(0xFFFFFDF5))
+                .statusBarsPadding()
+                .navigationBarsPadding()
         ) {
             Column(
                 modifier = Modifier
