@@ -18,12 +18,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import com.gg.ghkanji.data.ExamProgress
 import com.gg.ghkanji.data.ExamProgressManager
 import com.gg.ghkanji.data.ExamResult
@@ -390,9 +397,28 @@ fun UnInputScreen(
     var correctUn by remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()
 
+    // 키보드가 열려있는지 확인
+    val isImeVisible = WindowInsets.ime.getBottom(LocalDensity.current) > 0
+
+    // 제출 처리 함수
+    val submitAnswer = {
+        // Un (음) 추출 - kanjiHoonUn에서 마지막 단어
+        correctUn = kanji.kanjiHoonUn.trim().split(" ").lastOrNull() ?: ""
+        isCorrect = userInput.text.trim().equals(correctUn, ignoreCase = true)
+        showFeedback = true
+
+        scope.launch {
+            delay(1500)
+            showFeedback = false
+            userInput = TextFieldValue("")
+            onAnswerSubmit(isCorrect)
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .imePadding()
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -415,23 +441,25 @@ fun UnInputScreen(
 
         Spacer(modifier = Modifier.height(40.dp))
 
-        // 설명
-        Text(
-            text = "이 한자의 '음(音)'을 입력하세요",
-            fontSize = 18.sp,
-            color = Color(0xFF8B6F5C),
-            fontWeight = FontWeight.Medium
-        )
+        // 설명 (키보드가 열려있지 않을 때만 표시)
+        if (!isImeVisible) {
+            Text(
+                text = "이 한자의 '음(音)'을 입력하세요",
+                fontSize = 18.sp,
+                color = Color(0xFF8B6F5C),
+                fontWeight = FontWeight.Medium
+            )
 
-        Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
-        Text(
-            text = "예: '윗 상' → '상'",
-            fontSize = 14.sp,
-            color = Color(0xFFAA9988)
-        )
+            Text(
+                text = "예: '윗 상' → '상'",
+                fontSize = 14.sp,
+                color = Color(0xFFAA9988)
+            )
 
-        Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(24.dp))
+        }
 
         // 입력 필드
         OutlinedTextField(
@@ -451,6 +479,16 @@ fun UnInputScreen(
             textStyle = LocalTextStyle.current.copy(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Medium
+            ),
+            keyboardOptions = KeyboardOptions(
+                imeAction = ImeAction.Done
+            ),
+            keyboardActions = KeyboardActions(
+                onDone = {
+                    if (userInput.text.isNotBlank() && !showFeedback) {
+                        submitAnswer()
+                    }
+                }
             )
         )
 
@@ -458,19 +496,7 @@ fun UnInputScreen(
 
         // 제출 버튼
         Button(
-            onClick = {
-                // Un (음) 추출 - kanjiHoonUn에서 마지막 단어
-                correctUn = kanji.kanjiHoonUn.trim().split(" ").lastOrNull() ?: ""
-                isCorrect = userInput.text.trim().equals(correctUn, ignoreCase = true)
-                showFeedback = true
-
-                scope.launch {
-                    delay(1500)
-                    showFeedback = false
-                    userInput = TextFieldValue("")
-                    onAnswerSubmit(isCorrect)
-                }
-            },
+            onClick = submitAnswer,
             enabled = userInput.text.isNotBlank() && !showFeedback,
             modifier = Modifier
                 .fillMaxWidth()
