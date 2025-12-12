@@ -53,6 +53,34 @@ fun LearningGradeScreen(
             totalKanji = 160,
             color = Color(0xFF9AC6E8),
             shadowColor = Color(0xFF7BA8CC)
+        ),
+        GradeInfo(
+            grade = 3,
+            icon = "📖",
+            totalKanji = 200,
+            color = Color(0xFF85C88A),
+            shadowColor = Color(0xFF6AAA6F)
+        ),
+        GradeInfo(
+            grade = 4,
+            icon = "✏️",
+            totalKanji = 202,
+            color = Color(0xFFB19CD9),
+            shadowColor = Color(0xFF9580BD)
+        ),
+        GradeInfo(
+            grade = 5,
+            icon = "📝",
+            totalKanji = 193,
+            color = Color(0xFFE89AAC),
+            shadowColor = Color(0xFFCC7E8F)
+        ),
+        GradeInfo(
+            grade = 6,
+            icon = "🎓",
+            totalKanji = 191,
+            color = Color(0xFF7B9FD3),
+            shadowColor = Color(0xFF6283B7)
         )
     )
 
