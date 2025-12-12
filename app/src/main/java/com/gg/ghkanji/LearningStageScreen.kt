@@ -192,7 +192,6 @@ fun LearningStageScreen(
                     ) {
                         StageButton(
                             stage = stage,
-                            showCharacter = index == 0, // 첫 번째 스테이지에만 곰 표시
                             isLastStage = index == stages.size - 1, // 마지막 스테이지에는 학사모 표시
                             onClick = { onStageClick(stage) }
                         )
@@ -206,7 +205,6 @@ fun LearningStageScreen(
 @Composable
 fun StageButton(
     stage: Stage,
-    showCharacter: Boolean = false,
     isLastStage: Boolean = false,
     onClick: () -> Unit
 ) {
@@ -221,7 +219,6 @@ fun StageButton(
                 .clip(CircleShape)
                 .background(
                     color = when {
-                        showCharacter -> Color(0xFF9F5A5A) // 더 어두운 빨강
                         isLastStage -> Color(0xFF7B6FA3) // 더 어두운 보라색 (졸업)
                         else -> Color(0xFFCA8B5F) // 더 어두운 오렌지
                     }
@@ -235,7 +232,6 @@ fun StageButton(
                 .clip(CircleShape)
                 .background(
                     color = when {
-                        showCharacter -> Color(0xFFC97474) // 연한 빨강
                         isLastStage -> Color(0xFF9D8FC7) // 연한 보라색 (졸업)
                         else -> Color(0xFFE8A87C) // 연한 오렌지
                     }
@@ -244,13 +240,6 @@ fun StageButton(
             contentAlignment = Alignment.Center
         ) {
             when {
-                showCharacter -> {
-                    // 곰 캐릭터
-                    Text(
-                        text = "🐻",
-                        fontSize = 48.sp
-                    )
-                }
                 isLastStage -> {
                     // 학사모 (졸업시험)
                     Text(

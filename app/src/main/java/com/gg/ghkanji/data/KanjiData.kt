@@ -361,7 +361,7 @@ object KanjiData {
                   "kanjiMean": "열",
                   "kanjiHoondok": "토오 / 토",
                   "kanjiHoondokHiragana": "とお、と",
-                  "kanjiUndok": "쥬우 / 지ㅅ",
+                  "kanjiUndok": "쥬우 / 짓",
                   "kanjiUndokHiragana": "ジュウ、ジッ",
                   "exampleWord": "十分 (じゅうぶん : 충분)"
                 },
@@ -1361,7 +1361,7 @@ object KanjiData {
                   "kanjiMean": "합하다",
                   "kanjiHoondok": "아우 / 아와세루 / 아와스",
                   "kanjiHoondokHiragana": "あう、あわせる、あわす",
-                  "kanjiUndok": "고우 / 가ㅅ / 카ㅅ",
+                  "kanjiUndok": "고우 / 갓 / 캇",
                   "kanjiUndokHiragana": "ゴウ、ガッ、カッ",
                   "exampleWord": "集合 (しゅうごう : 집합)"
                 },
@@ -6143,7 +6143,7 @@ object KanjiData {
                   "kanjiMean": "법, 방법",
                   "kanjiHoondok": "",
                   "kanjiHoondokHiragana": "",
-                  "kanjiUndok": "호우  /  하ㅅ  /  호ㅅ",
+                  "kanjiUndok": "호우  /  핫  /  홋",
                   "kanjiUndokHiragana": "ホウ / ハッ / ホッ",
                   "exampleWord": "法律 (ほうりつ : 법률)"
                 },
