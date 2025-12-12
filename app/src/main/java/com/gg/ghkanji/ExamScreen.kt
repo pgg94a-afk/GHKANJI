@@ -397,31 +397,36 @@ fun UnInputScreen(
     kanji: KanjiItem,
     onAnswerSubmit: (Boolean) -> Unit
 ) {
-    var userInput by remember { mutableStateOf(TextFieldValue("")) }
-    var showFeedback by remember { mutableStateOf(false) }
-    var isCorrect by remember { mutableStateOf(false) }
-    var correctUn by remember { mutableStateOf("") }
+    var userInput by remember(kanji) { mutableStateOf(TextFieldValue("")) }
+    var showFeedback by remember(kanji) { mutableStateOf(false) }
+    var isCorrect by remember(kanji) { mutableStateOf(false) }
+    var correctUn by remember(kanji) { mutableStateOf("") }
     val scope = rememberCoroutineScope()
 
-    // 키보드 높이 감지
-    val density = LocalDensity.current
-    val imeInsets = WindowInsets.ime
-    val keyboardHeight = with(density) {
-        imeInsets.getBottom(this).toDp()
+    // 한자가 바뀔 때마다 상태 초기화
+    LaunchedEffect(kanji) {
+        userInput = TextFieldValue("")
+        showFeedback = false
+        isCorrect = false
+        correctUn = ""
     }
 
     // 제출 처리 함수
     val submitAnswer = {
-        // Un (음) 추출 - kanjiHoonUn에서 마지막 단어
-        correctUn = kanji.kanjiHoonUn.trim().split(" ").lastOrNull() ?: ""
-        isCorrect = userInput.text.trim().equals(correctUn, ignoreCase = true)
-        showFeedback = true
+        if (!showFeedback) {
+            // Un (음) 추출 - kanjiHoonUn에서 마지막 단어
+            correctUn = kanji.kanjiHoonUn.trim().split(" ").lastOrNull() ?: ""
+            isCorrect = userInput.text.trim().equals(correctUn, ignoreCase = true)
+            showFeedback = true
 
-        scope.launch {
-            delay(1500)
-            showFeedback = false
-            userInput = TextFieldValue("")
-            onAnswerSubmit(isCorrect)
+            scope.launch {
+                delay(1500)
+                if (showFeedback) {  // 여전히 피드백 표시 중인지 확인
+                    showFeedback = false
+                    userInput = TextFieldValue("")
+                    onAnswerSubmit(isCorrect)
+                }
+            }
         }
     }
 
@@ -477,7 +482,8 @@ fun UnInputScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
-                .padding(bottom = keyboardHeight + 16.dp)
+                .imePadding()
+                .padding(bottom = 16.dp)
                 .padding(horizontal = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
