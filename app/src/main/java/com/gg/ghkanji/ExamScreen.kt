@@ -387,6 +387,7 @@ fun UnInputScreen(
     var userInput by remember { mutableStateOf(TextFieldValue("")) }
     var showFeedback by remember { mutableStateOf(false) }
     var isCorrect by remember { mutableStateOf(false) }
+    var correctUn by remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()
 
     Column(
@@ -459,7 +460,7 @@ fun UnInputScreen(
         Button(
             onClick = {
                 // Un (음) 추출 - kanjiHoonUn에서 마지막 단어
-                val correctUn = kanji.kanjiHoonUn.trim().split(" ").lastOrNull() ?: ""
+                correctUn = kanji.kanjiHoonUn.trim().split(" ").lastOrNull() ?: ""
                 isCorrect = userInput.text.trim().equals(correctUn, ignoreCase = true)
                 showFeedback = true
 
@@ -498,6 +499,17 @@ fun UnInputScreen(
                 fontWeight = FontWeight.Bold,
                 color = if (isCorrect) Color(0xFF4CAF50) else Color(0xFFF44336)
             )
+
+            // 오답일 때 정답 표시
+            if (!isCorrect) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "정답: ${kanji.kanjiHoonUn}",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xFF8B6F5C)
+                )
+            }
         }
     }
 }
@@ -564,6 +576,14 @@ fun ReadingQuizDialog(
                         else -> Color.White
                     }
 
+                    // 테두리 색상 결정
+                    val borderColor = when {
+                        showResult && isCorrectOption -> Color(0xFF4CAF50) // 정답은 초록색 테두리
+                        showResult && isSelected && !isCorrectOption -> Color(0xFFF44336) // 오답은 빨간색 테두리
+                        isSelected -> Color(0xFFE97878) // 선택 중일 때는 핑크색
+                        else -> Color(0xFFEDB4B4) // 기본 테두리
+                    }
+
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -572,7 +592,7 @@ fun ReadingQuizDialog(
                             .background(backgroundColor)
                             .border(
                                 width = 2.dp,
-                                color = if (isSelected) Color(0xFFE97878) else Color(0xFFEDB4B4),
+                                color = borderColor,
                                 shape = RoundedCornerShape(12.dp)
                             )
                             .clickable(enabled = !showResult) {
