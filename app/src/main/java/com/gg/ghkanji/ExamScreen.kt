@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -215,6 +216,15 @@ fun ExamScreen(
 
         val currentKanji = kanjiList[currentQuestionIndex]
 
+        // 키보드 상태 감지
+        val density = LocalDensity.current
+        val imeInsets = WindowInsets.ime
+        val isKeyboardVisible = remember {
+            derivedStateOf {
+                imeInsets.getBottom(density) > 0
+            }
+        }.value
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -225,58 +235,60 @@ fun ExamScreen(
                     .fillMaxSize()
                     .padding(16.dp)
             ) {
-                // 상단 바 (뒤로가기 + 제목)
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { showExitDialog = true }) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "뒤로가기",
-                            tint = Color(0xFF8B6F5C),
-                            modifier = Modifier.size(32.dp)
+                // 상단 바 (뒤로가기 + 제목) - 키보드가 올라오면 숨김
+                if (!isKeyboardVisible) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        IconButton(onClick = { showExitDialog = true }) {
+                            Icon(
+                                imageVector = Icons.Default.ArrowBack,
+                                contentDescription = "뒤로가기",
+                                tint = Color(0xFF8B6F5C),
+                                modifier = Modifier.size(32.dp)
+                            )
+                        }
+
+                        Text(
+                            text = "${grade}-${grade} 한자시험",
+                            fontSize = 22.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF5A4A42)
                         )
+
+                        Spacer(modifier = Modifier.width(48.dp))
                     }
 
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // 진행 상황 표시
                     Text(
-                        text = "${grade}-${grade} 한자시험",
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF5A4A42)
+                        text = "${currentQuestionIndex + 1}/${kanjiList.size}",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color(0xFF8B6F5C),
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
                     )
 
-                    Spacer(modifier = Modifier.width(48.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // 진행 바
+                    LinearProgressIndicator(
+                        progress = (currentQuestionIndex + 1) / kanjiList.size.toFloat(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(8.dp)
+                            .clip(RoundedCornerShape(4.dp)),
+                        color = Color(0xFFE97878),
+                        trackColor = Color(0xFFEDB4B4)
+                    )
+
+                    Spacer(modifier = Modifier.height(40.dp))
                 }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // 진행 상황 표시
-                Text(
-                    text = "${currentQuestionIndex + 1}/${kanjiList.size}",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Color(0xFF8B6F5C),
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                // 진행 바
-                LinearProgressIndicator(
-                    progress = (currentQuestionIndex + 1) / kanjiList.size.toFloat(),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(8.dp)
-                        .clip(RoundedCornerShape(4.dp)),
-                    color = Color(0xFFE97878),
-                    trackColor = Color(0xFFEDB4B4)
-                )
-
-                Spacer(modifier = Modifier.height(40.dp))
 
                 // Un 입력 화면
                 if (currentPhase is QuizPhase.UnInput) {
