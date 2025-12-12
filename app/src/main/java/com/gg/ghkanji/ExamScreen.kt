@@ -449,25 +449,11 @@ fun UnInputScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // 한자 표시 (키보드 상태에 따라 좌우 텍스트 표시)
-            Row(
+            Box(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                contentAlignment = Alignment.Center
             ) {
-                // 키보드가 올라올 때 왼쪽에 "何？" 표시
-                if (isKeyboardVisible) {
-                    Text(
-                        text = "何？",
-                        fontSize = 32.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFFE97878),
-                        modifier = Modifier
-                            .padding(end = 16.dp)
-                            .graphicsLayer(rotationZ = -8f)
-                    )
-                }
-
-                // 한자 표시
+                // 한자 표시 (중앙 고정)
                 Box(
                     modifier = Modifier
                         .size(160.dp)
@@ -484,6 +470,20 @@ fun UnInputScreen(
                     )
                 }
 
+                // 키보드가 올라올 때 왼쪽에 "何？" 표시
+                if (isKeyboardVisible) {
+                    Text(
+                        text = "何？",
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFE97878),
+                        modifier = Modifier
+                            .align(Alignment.CenterStart)
+                            .padding(start = 16.dp)
+                            .graphicsLayer(rotationZ = -8f)
+                    )
+                }
+
                 // 키보드가 올라올 때 오른쪽에 "뭘까?" 표시
                 if (isKeyboardVisible) {
                     Text(
@@ -492,7 +492,8 @@ fun UnInputScreen(
                         fontWeight = FontWeight.Bold,
                         color = Color(0xFFE97878),
                         modifier = Modifier
-                            .padding(start = 16.dp)
+                            .align(Alignment.CenterEnd)
+                            .padding(end = 16.dp)
                             .graphicsLayer(rotationZ = 8f)
                     )
                 }
@@ -590,7 +591,7 @@ fun UnInputScreen(
 
                 // 확인 버튼
                 Button(
-                    onClick = { submitAnswer },
+                    onClick = submitAnswer,
                     enabled = userInput.text.isNotBlank() && !showFeedback,
                     modifier = Modifier
                         .height(56.dp)
