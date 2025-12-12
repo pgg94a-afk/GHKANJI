@@ -38,6 +38,60 @@ data class Stage(
     val endIndex: Int
 )
 
+data class GradeColors(
+    val main: Color,
+    val shadow: Color,
+    val path: Color,
+    val pathShadow: Color
+)
+
+fun getGradeColors(grade: Int): GradeColors {
+    return when (grade) {
+        1 -> GradeColors(
+            main = Color(0xFFE8A87C),
+            shadow = Color(0xFFCA8B5F),
+            path = Color(0xFFFFE4CC),
+            pathShadow = Color(0xFFE8C9A8)
+        )
+        2 -> GradeColors(
+            main = Color(0xFF9AC6E8),
+            shadow = Color(0xFF7BA8CC),
+            path = Color(0xFFD4E8F7),
+            pathShadow = Color(0xFFB8D5E8)
+        )
+        3 -> GradeColors(
+            main = Color(0xFF85C88A),
+            shadow = Color(0xFF6AAA6F),
+            path = Color(0xFFD0EDD2),
+            pathShadow = Color(0xFFB2D8B5)
+        )
+        4 -> GradeColors(
+            main = Color(0xFFB19CD9),
+            shadow = Color(0xFF9580BD),
+            path = Color(0xFFE0D7F0),
+            pathShadow = Color(0xFFC9B8E0)
+        )
+        5 -> GradeColors(
+            main = Color(0xFFE89AAC),
+            shadow = Color(0xFFCC7E8F),
+            path = Color(0xFFF7D8DF),
+            pathShadow = Color(0xFFE8BCC7)
+        )
+        6 -> GradeColors(
+            main = Color(0xFF7B9FD3),
+            shadow = Color(0xFF6283B7),
+            path = Color(0xFFD0DEEF),
+            pathShadow = Color(0xFFB4C8E0)
+        )
+        else -> GradeColors(
+            main = Color(0xFFE8A87C),
+            shadow = Color(0xFFCA8B5F),
+            path = Color(0xFFFFE4CC),
+            pathShadow = Color(0xFFE8C9A8)
+        )
+    }
+}
+
 @Composable
 fun LearningStageScreen(
     grade: Int = 1,
@@ -50,6 +104,9 @@ fun LearningStageScreen(
     BackHandler {
         onBackClick()
     }
+
+    // 학년별 색상 가져오기
+    val gradeColors = getGradeColors(grade)
 
     // 20개씩 스테이지 나누기
     val stages = createStages(grade, totalKanjiCount)
@@ -88,7 +145,7 @@ fun LearningStageScreen(
                     .fillMaxWidth()
                     .padding(horizontal = 32.dp)
                     .clip(RoundedCornerShape(50.dp))
-                    .background(Color(0xFFE8A87C)),
+                    .background(gradeColors.main),
                 contentAlignment = Alignment.Center
             ) {
                 Row(
@@ -120,7 +177,8 @@ fun LearningStageScreen(
             ) {
                 // 배경 경로 그리기
                 Canvas(modifier = Modifier.fillMaxSize()) {
-                    val pathColor = Color(0xFFFFE4CC)
+                    val pathColor = gradeColors.path
+                    val pathShadowColor = gradeColors.pathShadow
                     val strokeWidth = 20.dp.toPx()
                     val buttonRadius = 50.dp.toPx() // 버튼 반지름 (100dp / 2)
                     val buttonMargin = 30.dp.toPx() // 버튼의 좌우 마진
@@ -166,7 +224,7 @@ fun LearningStageScreen(
                             // 경로 그림자 (입체감)
                             drawPath(
                                 path = curvePath,
-                                color = Color(0xFFE8C9A8),
+                                color = pathShadowColor,
                                 style = Stroke(width = strokeWidth + 4.dp.toPx())
                             )
 
@@ -196,6 +254,7 @@ fun LearningStageScreen(
                     ) {
                         StageButton(
                             stage = stage,
+                            gradeColors = gradeColors,
                             isLastStage = index == stages.size - 1, // 마지막 스테이지에는 학사모 표시
                             onClick = { onStageClick(stage) }
                         )
@@ -209,6 +268,7 @@ fun LearningStageScreen(
 @Composable
 fun StageButton(
     stage: Stage,
+    gradeColors: GradeColors,
     isLastStage: Boolean = false,
     onClick: () -> Unit
 ) {
@@ -224,7 +284,7 @@ fun StageButton(
                 .background(
                     color = when {
                         isLastStage -> Color(0xFF7B6FA3) // 더 어두운 보라색 (졸업)
-                        else -> Color(0xFFCA8B5F) // 더 어두운 오렌지
+                        else -> gradeColors.shadow
                     }
                 )
         )
@@ -237,7 +297,7 @@ fun StageButton(
                 .background(
                     color = when {
                         isLastStage -> Color(0xFF9D8FC7) // 연한 보라색 (졸업)
-                        else -> Color(0xFFE8A87C) // 연한 오렌지
+                        else -> gradeColors.main
                     }
                 )
                 .clickable(onClick = onClick),
