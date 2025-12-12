@@ -229,7 +229,7 @@ fun ExamScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(8.dp),
+                        .padding(4.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -238,13 +238,13 @@ fun ExamScreen(
                             imageVector = Icons.Default.ArrowBack,
                             contentDescription = "뒤로가기",
                             tint = Color(0xFF8B6F5C),
-                            modifier = Modifier.size(32.dp)
+                            modifier = Modifier.size(28.dp)
                         )
                     }
 
                     Text(
                         text = "${grade}-${grade} 한자시험",
-                        fontSize = 22.sp,
+                        fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color(0xFF5A4A42)
                     )
@@ -252,18 +252,18 @@ fun ExamScreen(
                     Spacer(modifier = Modifier.width(48.dp))
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
                 // 진행 상황 표시
                 Text(
                     text = "${currentQuestionIndex + 1}/${kanjiList.size}",
-                    fontSize = 18.sp,
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
                     color = Color(0xFF8B6F5C),
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(4.dp))
 
                 // 진행 바
                 LinearProgressIndicator(
@@ -276,7 +276,7 @@ fun ExamScreen(
                     trackColor = Color(0xFFEDB4B4)
                 )
 
-                Spacer(modifier = Modifier.height(40.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 // Un 입력 화면
                 if (currentPhase is QuizPhase.UnInput) {
@@ -427,41 +427,41 @@ fun UnInputScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.TopCenter)
-                .padding(top = 16.dp),
+                .padding(top = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // 한자 표시
             Box(
                 modifier = Modifier
-                    .size(200.dp)
-                    .clip(RoundedCornerShape(20.dp))
+                    .size(160.dp)
+                    .clip(RoundedCornerShape(16.dp))
                     .background(Color.White)
-                    .border(3.dp, Color(0xFFE97878), RoundedCornerShape(20.dp)),
+                    .border(3.dp, Color(0xFFE97878), RoundedCornerShape(16.dp)),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
                     text = kanji.kanjiWord,
-                    fontSize = 120.sp,
+                    fontSize = 100.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFF5A4A42)
                 )
             }
 
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             // 설명
             Text(
                 text = "이 한자의 '음(音)'을 입력하세요",
-                fontSize = 18.sp,
+                fontSize = 16.sp,
                 color = Color(0xFF8B6F5C),
                 fontWeight = FontWeight.Medium
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(6.dp))
 
             Text(
                 text = "예: '윗 상' → '상'",
-                fontSize = 14.sp,
+                fontSize = 13.sp,
                 color = Color(0xFFAA9988)
             )
         }
