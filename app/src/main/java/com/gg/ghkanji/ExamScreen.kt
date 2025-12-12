@@ -31,6 +31,9 @@ import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import com.gg.ghkanji.data.ExamProgress
@@ -403,6 +406,45 @@ fun UnInputScreen(
     var correctUn by remember(kanji) { mutableStateOf("") }
     val scope = rememberCoroutineScope()
 
+    // 키보드 높이 추적
+    val imeInsets = WindowInsets.ime
+    val density = LocalDensity.current
+    val imeBottomPadding = with(density) { imeInsets.getBottom(density).toDp() }
+
+    // 키보드가 표시되어 있는지 확인
+    val isKeyboardVisible = imeBottomPadding > 0.dp
+
+    // 라이프사이클 관찰하여 백그라운드에서 돌아올 때 처리
+    val lifecycleOwner = LocalLifecycleOwner.current
+    var shouldResetLayout by remember { mutableStateOf(false) }
+
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            when (event) {
+                Lifecycle.Event.ON_RESUME -> {
+                    // 포그라운드로 돌아올 때 레이아웃 재설정
+                    shouldResetLayout = true
+                }
+                Lifecycle.Event.ON_PAUSE -> {
+                    shouldResetLayout = false
+                }
+                else -> {}
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
+
+    // 레이아웃 재설정이 필요할 때 처리
+    LaunchedEffect(shouldResetLayout) {
+        if (shouldResetLayout) {
+            delay(50) // 키보드 애니메이션 대기
+            shouldResetLayout = false
+        }
+    }
+
     // 한자가 바뀔 때마다 상태 초기화
     LaunchedEffect(kanji) {
         userInput = TextFieldValue("")
@@ -482,8 +524,7 @@ fun UnInputScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
-                .imePadding()
-                .padding(bottom = 16.dp)
+                .padding(bottom = if (isKeyboardVisible) imeBottomPadding + 16.dp else 16.dp)
                 .padding(horizontal = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
