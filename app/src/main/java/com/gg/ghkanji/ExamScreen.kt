@@ -401,7 +401,7 @@ fun UnInputScreen(
     val isImeVisible = WindowInsets.ime.getBottom(LocalDensity.current) > 0
 
     // 제출 처리 함수
-    val submitAnswer = {
+    fun submitAnswer() {
         // Un (음) 추출 - kanjiHoonUn에서 마지막 단어
         correctUn = kanji.kanjiHoonUn.trim().split(" ").lastOrNull() ?: ""
         isCorrect = userInput.text.trim().equals(correctUn, ignoreCase = true)
