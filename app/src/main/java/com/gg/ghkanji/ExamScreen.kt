@@ -496,7 +496,7 @@ fun UnInputScreen(
 
         // 제출 버튼
         Button(
-            onClick = submitAnswer,
+            onClick = { submitAnswer() },
             enabled = userInput.text.isNotBlank() && !showFeedback,
             modifier = Modifier
                 .fillMaxWidth()
