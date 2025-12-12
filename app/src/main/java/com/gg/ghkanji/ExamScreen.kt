@@ -24,6 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import com.gg.ghkanji.data.ExamProgress
+import com.gg.ghkanji.data.ExamProgressManager
 import com.gg.ghkanji.data.ExamResult
 import com.gg.ghkanji.data.ExamResultManager
 import com.gg.ghkanji.data.KanjiItem
@@ -59,23 +61,88 @@ fun ExamScreen(
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val examResultManager = remember { ExamResultManager(context) }
+    val examProgressManager = remember { ExamProgressManager(context) }
 
     var kanjiList by remember { mutableStateOf<List<KanjiItem>>(emptyList()) }
+    var originalKanjiList by remember { mutableStateOf<List<KanjiItem>>(emptyList()) }  // 섞기 전 원본 리스트
     var currentQuestionIndex by remember { mutableStateOf(0) }
     var currentPhase by remember { mutableStateOf<QuizPhase>(QuizPhase.UnInput) }
     var questionScores by remember { mutableStateOf<MutableMap<Int, QuestionScore>>(mutableMapOf()) }
     var isLoading by remember { mutableStateOf(true) }
     var showExitDialog by remember { mutableStateOf(false) }
 
-    // 데이터 로드
+    // 데이터 로드 및 진행 상태 복원
     LaunchedEffect(Unit) {
         scope.launch {
             KanjiRepository.loadKanjiData()
             val kanji = KanjiRepository.getKanjiByGrade(grade)
             kanji?.let {
-                kanjiList = it.kanjiList.shuffled()
+                originalKanjiList = it.kanjiList
+
+                // 저장된 진행 상태 확인
+                val savedProgress = examProgressManager.getProgress(grade)
+                if (savedProgress != null) {
+                    // 저장된 상태 복원
+                    kanjiList = savedProgress.kanjiIndices.map { index -> originalKanjiList[index] }
+                    currentQuestionIndex = savedProgress.currentQuestionIndex
+                    questionScores = savedProgress.getQuestionScoresAsIntMap().toMutableMap()
+
+                    // QuizPhase 복원
+                    currentPhase = when (savedProgress.currentPhaseType) {
+                        ExamProgress.PHASE_UNDOK_QUIZ -> QuizPhase.UndokQuiz(
+                            savedProgress.currentPhaseIndex,
+                            savedProgress.currentPhaseTotalCount
+                        )
+                        ExamProgress.PHASE_HOONDOK_QUIZ -> QuizPhase.HoondokQuiz(
+                            savedProgress.currentPhaseIndex,
+                            savedProgress.currentPhaseTotalCount
+                        )
+                        else -> QuizPhase.UnInput
+                    }
+                } else {
+                    // 새로운 시험 시작
+                    kanjiList = it.kanjiList.shuffled()
+                }
             }
             isLoading = false
+        }
+    }
+
+    // 상태 변경 시 자동 저장
+    LaunchedEffect(currentQuestionIndex, currentPhase, questionScores.size) {
+        if (!isLoading && kanjiList.isNotEmpty()) {
+            scope.launch {
+                // 한자 인덱스 찾기
+                val kanjiIndices = kanjiList.map { kanji ->
+                    originalKanjiList.indexOf(kanji)
+                }
+
+                // QuizPhase 정보 추출
+                val (phaseType, phaseIndex, phaseTotalCount) = when (currentPhase) {
+                    is QuizPhase.UndokQuiz -> {
+                        val phase = currentPhase as QuizPhase.UndokQuiz
+                        Triple(ExamProgress.PHASE_UNDOK_QUIZ, phase.currentIndex, phase.totalCount)
+                    }
+                    is QuizPhase.HoondokQuiz -> {
+                        val phase = currentPhase as QuizPhase.HoondokQuiz
+                        Triple(ExamProgress.PHASE_HOONDOK_QUIZ, phase.currentIndex, phase.totalCount)
+                    }
+                    else -> Triple(ExamProgress.PHASE_UN_INPUT, 0, 0)
+                }
+
+                val progress = ExamProgress(
+                    grade = grade,
+                    kanjiIndices = kanjiIndices,
+                    currentQuestionIndex = currentQuestionIndex,
+                    currentPhaseType = phaseType,
+                    currentPhaseIndex = phaseIndex,
+                    currentPhaseTotalCount = phaseTotalCount,
+                    questionScores = questionScores.mapKeys { it.key.toString() },
+                    timestamp = System.currentTimeMillis()
+                )
+
+                examProgressManager.saveProgress(progress)
+            }
         }
     }
 
@@ -87,14 +154,14 @@ fun ExamScreen(
     if (showExitDialog) {
         AlertDialog(
             onDismissRequest = { showExitDialog = false },
-            title = { Text("시험 종료") },
-            text = { Text("시험을 종료하시겠습니까? 현재까지의 답안은 저장되지 않습니다.") },
+            title = { Text("시험 나가기") },
+            text = { Text("시험을 나가시겠습니까? 진행 상황은 저장되어 나중에 이어서 볼 수 있습니다.") },
             confirmButton = {
                 TextButton(onClick = {
                     showExitDialog = false
                     onBackClick()
                 }) {
-                    Text("종료")
+                    Text("나가기")
                 }
             },
             dismissButton = {
@@ -130,6 +197,10 @@ fun ExamScreen(
                 )
 
                 examResultManager.saveExamResult(examResult)
+
+                // 시험 완료 시 진행 상태 삭제
+                examProgressManager.clearProgress(grade)
+
                 onExamFinished()
             }
             return

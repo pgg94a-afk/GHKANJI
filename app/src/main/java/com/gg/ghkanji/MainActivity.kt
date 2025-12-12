@@ -23,7 +23,7 @@ sealed class Screen {
     data class LearningStage(val grade: Int, val totalKanji: Int) : Screen()
     data class KanjiMemorization(val grade: Int, val stage: Stage, val totalKanji: Int) : Screen()
     object ExamGrade : Screen()
-    data class Exam(val grade: Int, val totalKanji: Int) : Screen()
+    data class Exam(val grade: Int, val totalKanji: Int, val fromGraduation: Boolean = false) : Screen()
     object ExamResults : Screen()
 }
 
@@ -53,9 +53,6 @@ class MainActivity : ComponentActivity() {
                         onStudyClick = {
                             currentScreen = Screen.LearningGrade // 학년 선택 화면으로 이동
                         },
-                        onTestClick = {
-                            currentScreen = Screen.ExamGrade // 시험 학년 선택 화면으로 이동
-                        },
                         onResultsClick = {
                             currentScreen = Screen.ExamResults // 성적 조회 화면으로 이동
                         }
@@ -82,7 +79,12 @@ class MainActivity : ComponentActivity() {
                         totalKanjiCount = screen.totalKanji,
                         scrollState = scrollState,
                         onStageClick = { stage ->
-                            currentScreen = Screen.KanjiMemorization(screen.grade, stage, screen.totalKanji)
+                            // 졸업시험 스테이지면 시험 화면으로, 아니면 암기 화면으로 이동
+                            if (stage.label == "졸업시험") {
+                                currentScreen = Screen.Exam(screen.grade, screen.totalKanji, fromGraduation = true)
+                            } else {
+                                currentScreen = Screen.KanjiMemorization(screen.grade, stage, screen.totalKanji)
+                            }
                         },
                         onBackClick = {
                             currentScreen = Screen.LearningGrade // 학년 선택 화면으로 돌아가기
@@ -113,7 +115,12 @@ class MainActivity : ComponentActivity() {
                         grade = screen.grade,
                         totalKanji = screen.totalKanji,
                         onBackClick = {
-                            currentScreen = Screen.ExamGrade
+                            // 졸업시험에서 온 경우 스테이지 화면으로, 아니면 시험 학년 선택 화면으로 돌아가기
+                            if (screen.fromGraduation) {
+                                currentScreen = Screen.LearningStage(screen.grade, screen.totalKanji)
+                            } else {
+                                currentScreen = Screen.ExamGrade
+                            }
                         },
                         onExamFinished = {
                             currentScreen = Screen.ExamResults
