@@ -262,12 +262,9 @@ fun ExamScreen(
 
                         Spacer(modifier = Modifier.width(48.dp))
                     }
-                } else {
-                    // 키보드가 올라올 때 타이틀 높이만큼 공간 확보 (한자 위치 고정)
-                    Spacer(modifier = Modifier.height(64.dp))
-                }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
 
                 // 진행 상황 표시 (항상 표시)
                 Text(
@@ -430,7 +427,6 @@ fun UnInputScreen(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .imePadding()
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
