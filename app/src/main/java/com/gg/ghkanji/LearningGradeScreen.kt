@@ -4,7 +4,9 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
@@ -124,6 +126,7 @@ fun LearningGradeScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
                     .padding(horizontal = 24.dp),
                 verticalArrangement = Arrangement.spacedBy(32.dp)
             ) {
@@ -133,6 +136,9 @@ fun LearningGradeScreen(
                         onClick = { onGradeClick(gradeInfo.grade, gradeInfo.totalKanji) }
                     )
                 }
+
+                // 하단 여백 (마지막 버튼이 잘 보이도록)
+                Spacer(modifier = Modifier.height(32.dp))
             }
         }
     }
