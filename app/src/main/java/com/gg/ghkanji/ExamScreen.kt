@@ -509,7 +509,9 @@ fun UnInputScreen(
 
             // 입력 필드와 확인 버튼을 수평 배치
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .imePadding(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
