@@ -26,6 +26,16 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.ui.window.Dialog
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -34,6 +44,8 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
@@ -446,7 +458,7 @@ fun UnInputScreen(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        // 상단 고정 부분 (한자 + 설명)
+        // 상단 고정 부분 (한자)
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -454,113 +466,53 @@ fun UnInputScreen(
                 .padding(top = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // 한자 및 입력 박스 (포커스 시)
-            Column(
+            Box(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally
+                contentAlignment = Alignment.Center
             ) {
+                // 한자 표시 (중앙 고정)
                 Box(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .size(160.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color.White)
+                        .border(3.dp, Color(0xFFE97878), RoundedCornerShape(16.dp)),
                     contentAlignment = Alignment.Center
                 ) {
-                    // 한자 표시 (중앙 고정)
-                    Box(
-                        modifier = Modifier
-                            .size(160.dp)
-                            .clip(RoundedCornerShape(16.dp))
-                            .background(Color.White)
-                            .border(3.dp, Color(0xFFE97878), RoundedCornerShape(16.dp)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = kanji.kanjiWord,
-                            fontSize = 100.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFF5A4A42)
-                        )
-                    }
-
-                    // 키보드가 올라올 때 왼쪽에 "何？" 표시
-                    if (isKeyboardVisible && isFocused) {
-                        Text(
-                            text = "何？",
-                            fontSize = 32.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFFE97878),
-                            modifier = Modifier
-                                .align(Alignment.CenterStart)
-                                .padding(start = 16.dp)
-                                .graphicsLayer(rotationZ = -8f)
-                        )
-                    }
-
-                    // 키보드가 올라올 때 오른쪽에 "뭘까?" 표시
-                    if (isKeyboardVisible && isFocused) {
-                        Text(
-                            text = "뭘까?",
-                            fontSize = 32.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFFE97878),
-                            modifier = Modifier
-                                .align(Alignment.CenterEnd)
-                                .padding(end = 16.dp)
-                                .graphicsLayer(rotationZ = 8f)
-                        )
-                    }
+                    Text(
+                        text = kanji.kanjiWord,
+                        fontSize = 100.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF5A4A42)
+                    )
                 }
 
-                // 포커스가 있을 때 한자 아래에 둥근 정사각형 입력 박스
-                if (isFocused) {
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    Box(
+                // 키보드가 올라올 때 왼쪽에 "何？" 표시
+                if (isKeyboardVisible && isFocused) {
+                    Text(
+                        text = "何？",
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFE97878),
                         modifier = Modifier
-                            .size(64.dp)
-                            .clip(RoundedCornerShape(16.dp))
-                            .background(Color.White)
-                            .border(3.dp, Color(0xFFE97878), RoundedCornerShape(16.dp)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        OutlinedTextField(
-                            value = userInput,
-                            onValueChange = {
-                                // 1글자만 입력 가능하도록 제한
-                                if (it.text.length <= 1) {
-                                    userInput = it
-                                }
-                            },
-                            modifier = Modifier
-                                .size(64.dp)
-                                .focusRequester(focusRequester)
-                                .onFocusChanged { focusState ->
-                                    isFocused = focusState.isFocused
-                                },
-                            enabled = !showFeedback,
-                            colors = OutlinedTextFieldDefaults.colors(
-                                focusedBorderColor = Color.Transparent,
-                                unfocusedBorderColor = Color.Transparent,
-                                cursorColor = Color(0xFFE97878),
-                                disabledBorderColor = Color.Transparent
-                            ),
-                            textStyle = LocalTextStyle.current.copy(
-                                fontSize = 32.sp,
-                                fontWeight = FontWeight.Bold,
-                                textAlign = TextAlign.Center,
-                                color = Color(0xFF5A4A42)
-                            ),
-                            keyboardOptions = KeyboardOptions(
-                                imeAction = ImeAction.Done
-                            ),
-                            keyboardActions = KeyboardActions(
-                                onDone = {
-                                    if (userInput.text.isNotBlank() && !showFeedback) {
-                                        submitAnswer()
-                                    }
-                                }
-                            ),
-                            singleLine = true
-                        )
-                    }
+                            .align(Alignment.CenterStart)
+                            .padding(start = 16.dp)
+                            .graphicsLayer(rotationZ = -8f)
+                    )
+                }
+
+                // 키보드가 올라올 때 오른쪽에 "뭘까?" 표시
+                if (isKeyboardVisible && isFocused) {
+                    Text(
+                        text = "뭘까?",
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFE97878),
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                            .padding(end = 16.dp)
+                            .graphicsLayer(rotationZ = 8f)
+                    )
                 }
             }
 
@@ -583,14 +535,114 @@ fun UnInputScreen(
                     color = Color(0xFFAA9988)
                 )
             }
+
+            // 포커스가 있을 때 한자 아래에 입력 박스와 확인 버튼 표시
+            AnimatedVisibility(
+                visible = isFocused,
+                enter = fadeIn(animationSpec = tween(300)) + expandVertically(animationSpec = tween(300)),
+                exit = fadeOut(animationSpec = tween(300)) + shrinkVertically(animationSpec = tween(300))
+            ) {
+                Column {
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterHorizontally),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        // 입력 박스
+                        Box(
+                            modifier = Modifier
+                                .size(80.dp)
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(Color.White)
+                                .border(3.dp, Color(0xFFE97878), RoundedCornerShape(20.dp)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            BasicTextField(
+                                value = userInput,
+                                onValueChange = {
+                                    // 1글자만 입력 가능하도록 제한
+                                    if (it.text.length <= 1) {
+                                        userInput = it
+                                    }
+                                },
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .focusRequester(focusRequester)
+                                    .onFocusChanged { focusState ->
+                                        isFocused = focusState.isFocused
+                                    },
+                                enabled = !showFeedback,
+                                textStyle = LocalTextStyle.current.copy(
+                                    fontSize = 40.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    textAlign = TextAlign.Center,
+                                    color = Color(0xFF5A4A42)
+                                ),
+                                keyboardOptions = KeyboardOptions(
+                                    imeAction = ImeAction.Done
+                                ),
+                                keyboardActions = KeyboardActions(
+                                    onDone = {
+                                        if (userInput.text.isNotBlank() && !showFeedback) {
+                                            submitAnswer()
+                                        }
+                                    }
+                                ),
+                                singleLine = true,
+                                cursorBrush = SolidColor(Color(0xFFE97878)),
+                                decorationBox = { innerTextField ->
+                                    Box(
+                                        contentAlignment = Alignment.Center,
+                                        modifier = Modifier.fillMaxSize()
+                                    ) {
+                                        innerTextField()
+                                    }
+                                }
+                            )
+                        }
+
+                        // 확인 버튼
+                        Button(
+                            onClick = submitAnswer,
+                            enabled = userInput.text.isNotBlank() && !showFeedback,
+                            modifier = Modifier
+                                .size(80.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFFE97878),
+                                disabledContainerColor = Color(0xFFEDB4B4)
+                            ),
+                            shape = RoundedCornerShape(20.dp)
+                        ) {
+                            Text(
+                                text = "확인",
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                        }
+                    }
+                }
+            }
         }
 
         // 하단 입력 부분 (포커스 없을 때만 표시)
-        if (!isFocused) {
+        AnimatedVisibility(
+            visible = !isFocused,
+            modifier = Modifier.align(Alignment.BottomCenter),
+            enter = fadeIn(animationSpec = tween(300)) + slideInVertically(
+                initialOffsetY = { it / 2 },
+                animationSpec = tween(300)
+            ),
+            exit = fadeOut(animationSpec = tween(300)) + slideOutVertically(
+                targetOffsetY = { it / 2 },
+                animationSpec = tween(300)
+            )
+        ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .align(Alignment.BottomCenter)
                     .padding(bottom = 16.dp)
                     .padding(horizontal = 32.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
