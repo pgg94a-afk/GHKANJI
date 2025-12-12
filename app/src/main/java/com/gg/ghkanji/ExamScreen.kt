@@ -586,24 +586,116 @@ fun mutateJapaneseText(text: String): String {
 
 // 히라가나 변형 (자음 또는 모음 변경)
 fun mutateHiragana(char: Char): Char {
-    val hiragana = "あいうえおかきくけこがぎぐげごさしすせそざじずぜぞたちつてとだぢづでどなにぬねのはひふへほばびぶべぼぱぴぷぺぽまみむめもやゆよらりるれろわをん"
-    val index = hiragana.indexOf(char)
-    if (index == -1) return char
+    // 히라가나 그리드 (행: 자음, 열: 모음 a/i/u/e/o)
+    val hiraganaGrid = listOf(
+        listOf('あ', 'い', 'う', 'え', 'お'), // ∅ (모음만)
+        listOf('か', 'き', 'く', 'け', 'こ'), // k
+        listOf('が', 'ぎ', 'ぐ', 'げ', 'ご'), // g
+        listOf('さ', 'し', 'す', 'せ', 'そ'), // s
+        listOf('ざ', 'じ', 'ず', 'ぜ', 'ぞ'), // z
+        listOf('た', 'ち', 'つ', 'て', 'と'), // t
+        listOf('だ', 'ぢ', 'づ', 'で', 'ど'), // d
+        listOf('な', 'に', 'ぬ', 'ね', 'の'), // n
+        listOf('は', 'ひ', 'ふ', 'へ', 'ほ'), // h
+        listOf('ば', 'び', 'ぶ', 'べ', 'ぼ'), // b
+        listOf('ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ'), // p
+        listOf('ま', 'み', 'む', 'め', 'も'), // m
+        listOf('や', null, 'ゆ', null, 'よ'), // y
+        listOf('ら', 'り', 'る', 'れ', 'ろ'), // r
+        listOf('わ', null, null, null, 'を')  // w
+    )
 
-    // 랜덤하게 다른 히라가나로 변경
-    val newIndex = Random.nextInt(hiragana.length)
-    return hiragana[newIndex]
+    // 현재 문자의 위치 찾기
+    var currentRow = -1
+    var currentCol = -1
+    for (row in hiraganaGrid.indices) {
+        for (col in hiraganaGrid[row].indices) {
+            if (hiraganaGrid[row][col] == char) {
+                currentRow = row
+                currentCol = col
+                break
+            }
+        }
+        if (currentRow != -1) break
+    }
+
+    if (currentRow == -1) return char // 그리드에 없으면 그대로 반환
+
+    // 50% 확률로 자음 또는 모음 변경
+    val changeConsonant = Random.nextBoolean()
+
+    return if (changeConsonant) {
+        // 자음 변경: 같은 열(모음)에서 다른 행(자음) 선택
+        val validRows = hiraganaGrid.indices.filter { row ->
+            row != currentRow && hiraganaGrid[row][currentCol] != null
+        }
+        if (validRows.isEmpty()) char
+        else hiraganaGrid[validRows.random()][currentCol]!!
+    } else {
+        // 모음 변경: 같은 행(자음)에서 다른 열(모음) 선택
+        val validCols = hiraganaGrid[currentRow].indices.filter { col ->
+            col != currentCol && hiraganaGrid[currentRow][col] != null
+        }
+        if (validCols.isEmpty()) char
+        else hiraganaGrid[currentRow][validCols.random()]!!
+    }
 }
 
 // 카타카나 변형
 fun mutateKatakana(char: Char): Char {
-    val katakana = "アイウエオカキクケコガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨラリルレロワヲン"
-    val index = katakana.indexOf(char)
-    if (index == -1) return char
+    // 카타카나 그리드 (행: 자음, 열: 모음 a/i/u/e/o)
+    val katakanaGrid = listOf(
+        listOf('ア', 'イ', 'ウ', 'エ', 'オ'), // ∅ (모음만)
+        listOf('カ', 'キ', 'ク', 'ケ', 'コ'), // k
+        listOf('ガ', 'ギ', 'グ', 'ゲ', 'ゴ'), // g
+        listOf('サ', 'シ', 'ス', 'セ', 'ソ'), // s
+        listOf('ザ', 'ジ', 'ズ', 'ゼ', 'ゾ'), // z
+        listOf('タ', 'チ', 'ツ', 'テ', 'ト'), // t
+        listOf('ダ', 'ヂ', 'ヅ', 'デ', 'ド'), // d
+        listOf('ナ', 'ニ', 'ヌ', 'ネ', 'ノ'), // n
+        listOf('ハ', 'ヒ', 'フ', 'ヘ', 'ホ'), // h
+        listOf('バ', 'ビ', 'ブ', 'ベ', 'ボ'), // b
+        listOf('パ', 'ピ', 'プ', 'ペ', 'ポ'), // p
+        listOf('マ', 'ミ', 'ム', 'メ', 'モ'), // m
+        listOf('ヤ', null, 'ユ', null, 'ヨ'), // y
+        listOf('ラ', 'リ', 'ル', 'レ', 'ロ'), // r
+        listOf('ワ', null, null, null, 'ヲ')  // w
+    )
 
-    // 랜덤하게 다른 카타카나로 변경
-    val newIndex = Random.nextInt(katakana.length)
-    return katakana[newIndex]
+    // 현재 문자의 위치 찾기
+    var currentRow = -1
+    var currentCol = -1
+    for (row in katakanaGrid.indices) {
+        for (col in katakanaGrid[row].indices) {
+            if (katakanaGrid[row][col] == char) {
+                currentRow = row
+                currentCol = col
+                break
+            }
+        }
+        if (currentRow != -1) break
+    }
+
+    if (currentRow == -1) return char // 그리드에 없으면 그대로 반환
+
+    // 50% 확률로 자음 또는 모음 변경
+    val changeConsonant = Random.nextBoolean()
+
+    return if (changeConsonant) {
+        // 자음 변경: 같은 열(모음)에서 다른 행(자음) 선택
+        val validRows = katakanaGrid.indices.filter { row ->
+            row != currentRow && katakanaGrid[row][currentCol] != null
+        }
+        if (validRows.isEmpty()) char
+        else katakanaGrid[validRows.random()][currentCol]!!
+    } else {
+        // 모음 변경: 같은 행(자음)에서 다른 열(모음) 선택
+        val validCols = katakanaGrid[currentRow].indices.filter { col ->
+            col != currentCol && katakanaGrid[currentRow][col] != null
+        }
+        if (validCols.isEmpty()) char
+        else katakanaGrid[currentRow][validCols.random()]!!
+    }
 }
 
 // 전체 점수 계산
