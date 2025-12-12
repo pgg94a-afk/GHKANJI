@@ -262,33 +262,36 @@ fun ExamScreen(
 
                         Spacer(modifier = Modifier.width(48.dp))
                     }
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    // 진행 상황 표시
-                    Text(
-                        text = "${currentQuestionIndex + 1}/${kanjiList.size}",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Medium,
-                        color = Color(0xFF8B6F5C),
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    // 진행 바
-                    LinearProgressIndicator(
-                        progress = (currentQuestionIndex + 1) / kanjiList.size.toFloat(),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(8.dp)
-                            .clip(RoundedCornerShape(4.dp)),
-                        color = Color(0xFFE97878),
-                        trackColor = Color(0xFFEDB4B4)
-                    )
-
-                    Spacer(modifier = Modifier.height(40.dp))
+                } else {
+                    // 키보드가 올라올 때 타이틀 높이만큼 공간 확보 (한자 위치 고정)
+                    Spacer(modifier = Modifier.height(64.dp))
                 }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // 진행 상황 표시 (항상 표시)
+                Text(
+                    text = "${currentQuestionIndex + 1}/${kanjiList.size}",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xFF8B6F5C),
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // 진행 바 (항상 표시)
+                LinearProgressIndicator(
+                    progress = (currentQuestionIndex + 1) / kanjiList.size.toFloat(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(8.dp)
+                        .clip(RoundedCornerShape(4.dp)),
+                    color = Color(0xFFE97878),
+                    trackColor = Color(0xFFEDB4B4)
+                )
+
+                Spacer(modifier = Modifier.height(40.dp))
 
                 // Un 입력 화면
                 if (currentPhase is QuizPhase.UnInput) {
