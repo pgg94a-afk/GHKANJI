@@ -13,7 +13,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -216,15 +215,6 @@ fun ExamScreen(
 
         val currentKanji = kanjiList[currentQuestionIndex]
 
-        // 키보드 상태 감지
-        val density = LocalDensity.current
-        val imeInsets = WindowInsets.ime
-        val isKeyboardVisible = remember {
-            derivedStateOf {
-                imeInsets.getBottom(density) > 0
-            }
-        }.value
-
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -235,38 +225,36 @@ fun ExamScreen(
                     .fillMaxSize()
                     .padding(16.dp)
             ) {
-                // 상단 바 (뒤로가기 + 제목) - 키보드가 올라오면 숨김
-                if (!isKeyboardVisible) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        IconButton(onClick = { showExitDialog = true }) {
-                            Icon(
-                                imageVector = Icons.Default.ArrowBack,
-                                contentDescription = "뒤로가기",
-                                tint = Color(0xFF8B6F5C),
-                                modifier = Modifier.size(32.dp)
-                            )
-                        }
-
-                        Text(
-                            text = "${grade}-${grade} 한자시험",
-                            fontSize = 22.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFF5A4A42)
+                // 상단 바 (뒤로가기 + 제목) - 항상 표시
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(onClick = { showExitDialog = true }) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "뒤로가기",
+                            tint = Color(0xFF8B6F5C),
+                            modifier = Modifier.size(32.dp)
                         )
-
-                        Spacer(modifier = Modifier.width(48.dp))
                     }
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = "${grade}-${grade} 한자시험",
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF5A4A42)
+                    )
+
+                    Spacer(modifier = Modifier.width(48.dp))
                 }
 
-                // 진행 상황 표시 (항상 표시)
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // 진행 상황 표시
                 Text(
                     text = "${currentQuestionIndex + 1}/${kanjiList.size}",
                     fontSize = 18.sp,
@@ -277,7 +265,7 @@ fun ExamScreen(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // 진행 바 (항상 표시)
+                // 진행 바
                 LinearProgressIndicator(
                     progress = (currentQuestionIndex + 1) / kanjiList.size.toFloat(),
                     modifier = Modifier
@@ -409,6 +397,13 @@ fun UnInputScreen(
     var correctUn by remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()
 
+    // 키보드 높이 감지
+    val density = LocalDensity.current
+    val imeInsets = WindowInsets.ime
+    val keyboardHeight = with(density) {
+        imeInsets.getBottom(this).toDp()
+    }
+
     // 제출 처리 함수
     val submitAnswer = {
         // Un (음) 추출 - kanjiHoonUn에서 마지막 단어
@@ -424,130 +419,140 @@ fun UnInputScreen(
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally
+    Box(
+        modifier = Modifier.fillMaxSize()
     ) {
-        // 한자 표시
-        Box(
-            modifier = Modifier
-                .size(200.dp)
-                .clip(RoundedCornerShape(20.dp))
-                .background(Color.White)
-                .border(3.dp, Color(0xFFE97878), RoundedCornerShape(20.dp)),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = kanji.kanjiWord,
-                fontSize = 120.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF5A4A42)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        // 설명
-        Text(
-            text = "이 한자의 '음(音)'을 입력하세요",
-            fontSize = 18.sp,
-            color = Color(0xFF8B6F5C),
-            fontWeight = FontWeight.Medium
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Text(
-            text = "예: '윗 상' → '상'",
-            fontSize = 14.sp,
-            color = Color(0xFFAA9988)
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        // 입력 필드와 확인 버튼을 수평 배치
-        Row(
+        // 상단 고정 부분 (한자 + 설명)
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .align(Alignment.TopCenter)
+                .padding(top = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // 입력 필드
-            OutlinedTextField(
-                value = userInput,
-                onValueChange = { userInput = it },
+            // 한자 표시
+            Box(
                 modifier = Modifier
-                    .weight(1f),
-                placeholder = { Text("음을 입력하세요") },
-                enabled = !showFeedback,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = Color(0xFFE97878),
-                    unfocusedBorderColor = Color(0xFFEDB4B4),
-                    cursorColor = Color(0xFFE97878)
-                ),
-                shape = RoundedCornerShape(12.dp),
-                textStyle = LocalTextStyle.current.copy(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Medium
-                ),
-                keyboardOptions = KeyboardOptions(
-                    imeAction = ImeAction.Done
-                ),
-                keyboardActions = KeyboardActions(
-                    onDone = {
-                        if (userInput.text.isNotBlank() && !showFeedback) {
-                            submitAnswer()
-                        }
-                    }
-                )
-            )
-
-            // 확인 버튼
-            Button(
-                onClick = { submitAnswer },
-                enabled = userInput.text.isNotBlank() && !showFeedback,
-                modifier = Modifier
-                    .height(56.dp)
-                    .widthIn(min = 80.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFE97878),
-                    disabledContainerColor = Color(0xFFEDB4B4)
-                ),
-                shape = RoundedCornerShape(28.dp)
+                    .size(200.dp)
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(Color.White)
+                    .border(3.dp, Color(0xFFE97878), RoundedCornerShape(20.dp)),
+                contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "확인",
-                    fontSize = 18.sp,
+                    text = kanji.kanjiWord,
+                    fontSize = 120.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = Color(0xFF5A4A42)
                 )
             }
-        }
 
-        Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(40.dp))
 
-        // 피드백 표시
-        if (showFeedback) {
-            Spacer(modifier = Modifier.height(16.dp))
+            // 설명
             Text(
-                text = if (isCorrect) "정답입니다!" else "오답입니다",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                color = if (isCorrect) Color(0xFF4CAF50) else Color(0xFFF44336)
+                text = "이 한자의 '음(音)'을 입력하세요",
+                fontSize = 18.sp,
+                color = Color(0xFF8B6F5C),
+                fontWeight = FontWeight.Medium
             )
 
-            // 오답일 때 정답 표시
-            if (!isCorrect) {
-                Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = "예: '윗 상' → '상'",
+                fontSize = 14.sp,
+                color = Color(0xFFAA9988)
+            )
+        }
+
+        // 하단 입력 부분 (키보드 높이만큼 위로 이동)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+                .padding(bottom = keyboardHeight + 16.dp)
+                .padding(horizontal = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // 피드백 표시
+            if (showFeedback) {
                 Text(
-                    text = "정답: ${kanji.kanjiHoonUn}",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Color(0xFF8B6F5C)
+                    text = if (isCorrect) "정답입니다!" else "오답입니다",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = if (isCorrect) Color(0xFF4CAF50) else Color(0xFFF44336)
                 )
+
+                // 오답일 때 정답 표시
+                if (!isCorrect) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "정답: ${kanji.kanjiHoonUn}",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color(0xFF8B6F5C)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+            }
+
+            // 입력 필드와 확인 버튼을 수평 배치
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // 입력 필드
+                OutlinedTextField(
+                    value = userInput,
+                    onValueChange = { userInput = it },
+                    modifier = Modifier.weight(1f),
+                    placeholder = { Text("음을 입력하세요") },
+                    enabled = !showFeedback,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = Color(0xFFE97878),
+                        unfocusedBorderColor = Color(0xFFEDB4B4),
+                        cursorColor = Color(0xFFE97878)
+                    ),
+                    shape = RoundedCornerShape(12.dp),
+                    textStyle = LocalTextStyle.current.copy(
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Medium
+                    ),
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Done
+                    ),
+                    keyboardActions = KeyboardActions(
+                        onDone = {
+                            if (userInput.text.isNotBlank() && !showFeedback) {
+                                submitAnswer()
+                            }
+                        }
+                    )
+                )
+
+                // 확인 버튼
+                Button(
+                    onClick = { submitAnswer },
+                    enabled = userInput.text.isNotBlank() && !showFeedback,
+                    modifier = Modifier
+                        .height(56.dp)
+                        .widthIn(min = 80.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFE97878),
+                        disabledContainerColor = Color(0xFFEDB4B4)
+                    ),
+                    shape = RoundedCornerShape(28.dp)
+                ) {
+                    Text(
+                        text = "확인",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                }
             }
         }
     }
