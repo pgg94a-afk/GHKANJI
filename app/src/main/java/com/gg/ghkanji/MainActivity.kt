@@ -30,6 +30,7 @@ sealed class Screen {
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             // 간단한 네비게이션 상태 관리 (실무에선 NavController 사용 권장)
             var currentScreen by remember { mutableStateOf<Screen>(Screen.Splash) }
