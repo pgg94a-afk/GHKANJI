@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
@@ -29,6 +30,8 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import com.gg.ghkanji.data.ExamProgress
@@ -401,6 +404,12 @@ fun UnInputScreen(
     var correctUn by remember(kanji) { mutableStateOf("") }
     val scope = rememberCoroutineScope()
 
+    // 키보드 상태 감지
+    val density = LocalDensity.current
+    val imeInsets = WindowInsets.ime
+    val imeBottom = with(density) { imeInsets.getBottom(density).toDp() }
+    val isKeyboardVisible = imeBottom > 0.dp
+
     // 한자가 바뀔 때마다 상태 초기화
     LaunchedEffect(kanji) {
         userInput = TextFieldValue("")
@@ -439,40 +448,75 @@ fun UnInputScreen(
                 .padding(top = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // 한자 표시
-            Box(
-                modifier = Modifier
-                    .size(160.dp)
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(Color.White)
-                    .border(3.dp, Color(0xFFE97878), RoundedCornerShape(16.dp)),
-                contentAlignment = Alignment.Center
+            // 한자 표시 (키보드 상태에 따라 좌우 텍스트 표시)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = kanji.kanjiWord,
-                    fontSize = 100.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF5A4A42)
-                )
+                // 키보드가 올라올 때 왼쪽에 "何？" 표시
+                if (isKeyboardVisible) {
+                    Text(
+                        text = "何？",
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFE97878),
+                        modifier = Modifier
+                            .padding(end = 16.dp)
+                            .graphicsLayer(rotationZ = -8f)
+                    )
+                }
+
+                // 한자 표시
+                Box(
+                    modifier = Modifier
+                        .size(160.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color.White)
+                        .border(3.dp, Color(0xFFE97878), RoundedCornerShape(16.dp)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = kanji.kanjiWord,
+                        fontSize = 100.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF5A4A42)
+                    )
+                }
+
+                // 키보드가 올라올 때 오른쪽에 "뭘까?" 표시
+                if (isKeyboardVisible) {
+                    Text(
+                        text = "뭘까?",
+                        fontSize = 32.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFE97878),
+                        modifier = Modifier
+                            .padding(start = 16.dp)
+                            .graphicsLayer(rotationZ = 8f)
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // 설명
-            Text(
-                text = "이 한자의 '음(音)'을 입력하세요",
-                fontSize = 16.sp,
-                color = Color(0xFF8B6F5C),
-                fontWeight = FontWeight.Medium
-            )
+            // 설명 (키보드가 내려갈 때만 표시)
+            if (!isKeyboardVisible) {
+                Text(
+                    text = "이 한자의 '음(音)'을 입력하세요",
+                    fontSize = 16.sp,
+                    color = Color(0xFF8B6F5C),
+                    fontWeight = FontWeight.Medium
+                )
 
-            Spacer(modifier = Modifier.height(6.dp))
+                Spacer(modifier = Modifier.height(6.dp))
 
-            Text(
-                text = "예: '윗 상' → '상'",
-                fontSize = 13.sp,
-                color = Color(0xFFAA9988)
-            )
+                Text(
+                    text = "예: '윗 상' → '상'",
+                    fontSize = 13.sp,
+                    color = Color(0xFFAA9988)
+                )
+            }
         }
 
         // 하단 입력 부분
