@@ -22,7 +22,8 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun MainScreen(
     onStudyClick: () -> Unit = {},
-    onTestClick: () -> Unit = {}
+    onTestClick: () -> Unit = {},
+    onResultsClick: () -> Unit = {}
 ) {
     Box(
         modifier = Modifier
@@ -103,6 +104,27 @@ fun MainScreen(
             ) {
                 Text(
                     text = "한자 시험",
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFFE97878)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // "성적 조회" 버튼
+            Button(
+                onClick = onResultsClick,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(70.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFFAD4D4)
+                ),
+                shape = RoundedCornerShape(35.dp)
+            ) {
+                Text(
+                    text = "성적 조회",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFFE97878)

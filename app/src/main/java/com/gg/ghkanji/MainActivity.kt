@@ -22,6 +22,9 @@ sealed class Screen {
     object LearningGrade : Screen()
     data class LearningStage(val grade: Int, val totalKanji: Int) : Screen()
     data class KanjiMemorization(val grade: Int, val stage: Stage, val totalKanji: Int) : Screen()
+    object ExamGrade : Screen()
+    data class Exam(val grade: Int, val totalKanji: Int) : Screen()
+    object ExamResults : Screen()
 }
 
 class MainActivity : ComponentActivity() {
@@ -51,7 +54,10 @@ class MainActivity : ComponentActivity() {
                             currentScreen = Screen.LearningGrade // 학년 선택 화면으로 이동
                         },
                         onTestClick = {
-                            // TODO: 한자 시험 화면으로 이동
+                            currentScreen = Screen.ExamGrade // 시험 학년 선택 화면으로 이동
+                        },
+                        onResultsClick = {
+                            currentScreen = Screen.ExamResults // 성적 조회 화면으로 이동
                         }
                     )
                 }
@@ -89,6 +95,35 @@ class MainActivity : ComponentActivity() {
                         stage = screen.stage,
                         onBackClick = {
                             currentScreen = Screen.LearningStage(screen.grade, screen.totalKanji)
+                        }
+                    )
+                }
+                Screen.ExamGrade -> {
+                    ExamGradeScreen(
+                        onGradeClick = { grade, totalKanji ->
+                            currentScreen = Screen.Exam(grade, totalKanji)
+                        },
+                        onBackClick = {
+                            currentScreen = Screen.Main
+                        }
+                    )
+                }
+                is Screen.Exam -> {
+                    ExamScreen(
+                        grade = screen.grade,
+                        totalKanji = screen.totalKanji,
+                        onBackClick = {
+                            currentScreen = Screen.ExamGrade
+                        },
+                        onExamFinished = {
+                            currentScreen = Screen.ExamResults
+                        }
+                    )
+                }
+                Screen.ExamResults -> {
+                    ExamResultsScreen(
+                        onBackClick = {
+                            currentScreen = Screen.Main
                         }
                     )
                 }
